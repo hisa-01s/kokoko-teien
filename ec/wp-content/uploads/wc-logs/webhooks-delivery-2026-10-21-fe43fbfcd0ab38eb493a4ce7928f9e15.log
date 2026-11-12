@@ -1,0 +1,364 @@
+2026-10-21T13:32:17+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 0e30cdac864fdec5cbb00f3583c4c05a
+            [Date] => 2026年10月21日 @ 13:32
+            [URL] => https://woo-api-gw.dsers.com/woo-user-bff/hook/product/updated/dbb0qg5klfd000a3sibg
+            [Duration] => 1.56234
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/11.2.1 Hookshot (WordPress/7.1.3)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://heal-place.com/ec/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => GANv2GOEU1Dv0XisXUDGBFiAufAuDB8rC/P8/DMMb8Y=
+                            [X-WC-Webhook-ID] => 4
+                            [X-WC-Webhook-Delivery-ID] => 0e30cdac864fdec5cbb00f3583c4c05a
+                        )
+
+                )
+
+            [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Tengine
+                                    [content-length] => 0
+                                    [date] => Wed, 21 Oct 2026 13:32:16 GMT
+                                    [x-envoy-upstream-service-time] => 638
+                                    [via] => cache35.l2nu20-1[704,0], ens-cache46.l2nu20-20[705,0], cache7.l2hk4[734,0], ens-cache10.jp14[826,0]
+                                    [timing-allow-origin] => *
+                                    [eagleid] => 9b66d19e17925895361378824e
+                                )
+
+                        )
+
+                    [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+                )
+
+        )
+
+)
+2026-10-21T13:44:26+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 21516fc6f5812977b8caf77f2a3251e7
+            [Date] => 2026年10月21日 @ 13:44
+            [URL] => https://woo-api-gw.dsers.com/woo-user-bff/hook/product/updated/dbb0qg5klfd000a3sibg
+            [Duration] => 1.91789
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/11.2.1 Hookshot (WordPress/7.1.3)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://heal-place.com/ec/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => L7gJp+YLKNG5A1qbEYRMPgIbM96pew5NOylAk1Cesk8=
+                            [X-WC-Webhook-ID] => 4
+                            [X-WC-Webhook-Delivery-ID] => 21516fc6f5812977b8caf77f2a3251e7
+                        )
+
+                )
+
+            [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Tengine
+                                    [content-length] => 0
+                                    [date] => Wed, 21 Oct 2026 13:44:26 GMT
+                                    [x-envoy-upstream-service-time] => 1001
+                                    [via] => cache13.l2nu20-1[1065,0], ens-cache31.l2nu20-20[1067,0], cache19.l2hk4[1169,0], ens-cache2.jp14[1262,0]
+                                    [timing-allow-origin] => *
+                                    [eagleid] => 9b66d19617925902654468922e
+                                )
+
+                        )
+
+                    [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+                )
+
+        )
+
+)
+2026-10-21T13:49:37+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 8752f704c4d82ebba15750de576f40da
+            [Date] => 2026年10月21日 @ 13:49
+            [URL] => https://woo-api-gw.dsers.com/woo-user-bff/hook/product/updated/dbb0qg5klfd000a3sibg
+            [Duration] => 1.84323
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/11.2.1 Hookshot (WordPress/7.1.3)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://heal-place.com/ec/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => yH24AFjrFJyGjk51vhVpQrYnfKjp7wW6afnU8qoCkrk=
+                            [X-WC-Webhook-ID] => 4
+                            [X-WC-Webhook-Delivery-ID] => 8752f704c4d82ebba15750de576f40da
+                        )
+
+                )
+
+            [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Tengine
+                                    [content-length] => 0
+                                    [date] => Wed, 21 Oct 2026 13:49:37 GMT
+                                    [x-envoy-upstream-service-time] => 1002
+                                    [via] => cache30.l2nu20-1[1056,0], ens-cache19.l2nu20-20[1057,0], ens-cache4.l2hk17[1087,0], ens-cache2.jp14[1194,0]
+                                    [timing-allow-origin] => *
+                                    [eagleid] => 9b66d19617925905762904879e
+                                )
+
+                        )
+
+                    [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+                )
+
+        )
+
+)
+2026-10-21T13:50:49+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => fc223a497e2c6d238412ff9176df550c
+            [Date] => 2026年10月21日 @ 13:50
+            [URL] => https://woo-api-gw.dsers.com/woo-user-bff/hook/product/updated/dbb0qg5klfd000a3sibg
+            [Duration] => 1.4364
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/11.2.1 Hookshot (WordPress/7.1.3)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://heal-place.com/ec/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => H3wI59xfMtqo/vYLxAxgCzDM7uBy80yGj5sva5esEhM=
+                            [X-WC-Webhook-ID] => 4
+                            [X-WC-Webhook-Delivery-ID] => fc223a497e2c6d238412ff9176df550c
+                        )
+
+                )
+
+            [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Tengine
+                                    [content-length] => 0
+                                    [date] => Wed, 21 Oct 2026 13:50:49 GMT
+                                    [x-envoy-upstream-service-time] => 1001
+                                    [via] => cache6.l2nu20-1[1050,0], ens-cache69.l2nu20-20[1053,0], ens-cache21.l2hk17[1085,0], ens-cache7.jp14[1174,0]
+                                    [timing-allow-origin] => *
+                                    [eagleid] => 9b66d19b17925906483823998e
+                                )
+
+                        )
+
+                    [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+                )
+
+        )
+
+)
+2026-10-21T13:51:38+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 9c28ad64327b74166ffb225dbadae068
+            [Date] => 2026年10月21日 @ 13:51
+            [URL] => https://woo-api-gw.dsers.com/woo-user-bff/hook/product/updated/dbb0qg5klfd000a3sibg
+            [Duration] => 1.36407
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/11.2.1 Hookshot (WordPress/7.1.3)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://heal-place.com/ec/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => QFLelM9RXDjU7vR61GohQqxlWXNRb8WODEiE0D4P6Gg=
+                            [X-WC-Webhook-ID] => 4
+                            [X-WC-Webhook-Delivery-ID] => 9c28ad64327b74166ffb225dbadae068
+                        )
+
+                )
+
+            [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Tengine
+                                    [content-length] => 0
+                                    [date] => Wed, 21 Oct 2026 13:51:38 GMT
+                                    [x-envoy-upstream-service-time] => 1002
+                                    [via] => cache27.l2nu20-1[1051,0], ens-cache33.l2nu20-20[1053,0], ens-cache8.l2hk17[1083,0], ens-cache6.jp14[1137,0]
+                                    [timing-allow-origin] => *
+                                    [eagleid] => 9b66d19a17925906976545140e
+                                )
+
+                        )
+
+                    [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+                )
+
+        )
+
+)
+2026-10-21T13:52:38+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => bfe3af6b1e25df3030050fa87c4ad6f0
+            [Date] => 2026年10月21日 @ 13:52
+            [URL] => https://woo-api-gw.dsers.com/woo-user-bff/hook/product/updated/dbb0qg5klfd000a3sibg
+            [Duration] => 1.87973
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/11.2.1 Hookshot (WordPress/7.1.3)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://heal-place.com/ec/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => kwJB/FYO7VdiRTNmSlxx7Y4c8MU+iCdl4FMfSrhzQh4=
+                            [X-WC-Webhook-ID] => 4
+                            [X-WC-Webhook-Delivery-ID] => bfe3af6b1e25df3030050fa87c4ad6f0
+                        )
+
+                )
+
+            [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Tengine
+                                    [content-length] => 0
+                                    [date] => Wed, 21 Oct 2026 13:52:38 GMT
+                                    [x-envoy-upstream-service-time] => 1002
+                                    [via] => cache4.l2nu20-1[1051,0], ens-cache70.l2nu20-20[1052,0], ens-cache21.l2hk17[1081,0], ens-cache5.jp14[1130,0]
+                                    [timing-allow-origin] => *
+                                    [eagleid] => 9b66d19917925907571161019e
+                                )
+
+                        )
+
+                    [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+                )
+
+        )
+
+)
+2026-10-21T14:55:40+00:00 INFO Array
+(
+    [Webhook Delivery] => Array
+        (
+            [Delivery ID] => 7cb231c36b2f5845ebff2ca16674f29e
+            [Date] => 2026年10月21日 @ 14:55
+            [URL] => https://woo-api-gw.dsers.com/woo-user-bff/hook/product/updated/dbb0qg5klfd000a3sibg
+            [Duration] => 1.84507
+            [Request] => Array
+                (
+                    [Method] => POST
+                    [Headers] => Array
+                        (
+                            [User-Agent] => WooCommerce/11.2.1 Hookshot (WordPress/7.1.3)
+                            [Content-Type] => application/json
+                            [X-WC-Webhook-Source] => https://heal-place.com/ec/
+                            [X-WC-Webhook-Topic] => product.updated
+                            [X-WC-Webhook-Resource] => product
+                            [X-WC-Webhook-Event] => updated
+                            [X-WC-Webhook-Signature] => vb8WYjNbGNA9a8SbO6vNL53b87BJlGMjrrtVDP3CoUM=
+                            [X-WC-Webhook-ID] => 4
+                            [X-WC-Webhook-Delivery-ID] => 7cb231c36b2f5845ebff2ca16674f29e
+                        )
+
+                )
+
+            [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+            [Response] => Array
+                (
+                    [Code] => 200
+                    [Message] => OK
+                    [Headers] => WpOrg\Requests\Utility\CaseInsensitiveDictionary Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [server] => Tengine
+                                    [content-length] => 0
+                                    [date] => Wed, 21 Oct 2026 14:55:40 GMT
+                                    [x-envoy-upstream-service-time] => 1001
+                                    [via] => cache20.l2nu20-1[1051,0], ens-cache10.l2nu20-20[1052,0], cache27.l2hk4[1083,0], ens-cache3.jp14[1133,0]
+                                    [timing-allow-origin] => *
+                                    [eagleid] => 9b66d19717925945394448329e
+                                )
+
+                        )
+
+                    [Body] => Webhook body is not logged unless WP_DEBUG mode is turned on. This is to avoid the storing of personal data in the logs.
+                )
+
+        )
+
+)

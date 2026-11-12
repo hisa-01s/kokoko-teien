@@ -1,0 +1,176 @@
+<?php //アクセス解析ダッシュボード - アセット enqueue
+/**
+ * Cocoon WordPress Theme
+ * @author: yhira
+ * @link: https://wp-cocoon.com/
+ * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ */
+if ( !defined( 'ABSPATH' ) ) exit;
+
+add_action('admin_enqueue_scripts', 'cocoon_analytics_admin_enqueue');
+add_action('admin_print_footer_scripts', 'cocoon_analytics_print_data', 5);
+
+if ( !function_exists( 'cocoon_analytics_admin_enqueue' ) ):
+function cocoon_analytics_admin_enqueue($hook){
+  // アクセス解析ページでのみ読み込む
+  if (strpos($hook, 'theme-access') === false) return;
+
+  $base = get_cocoon_template_directory_uri() . '/lib/page-access/analytics/assets';
+  $path = get_cocoon_template_directory() . '/lib/page-access/analytics/assets';
+
+  // Chart.js は CDN（UMD 版）を利用
+  wp_enqueue_script(
+    'cocoon-analytics-chartjs',
+    'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js',
+    array(),
+    '4.4.1',
+    true
+  );
+
+  // SortableJS（ドラッグ&ドロップでタイル並び替え）
+  wp_enqueue_script(
+    'cocoon-analytics-sortablejs',
+    'https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js',
+    array(),
+    '1.15.2',
+    true
+  );
+
+  wp_enqueue_style(
+    'cocoon-analytics-style',
+    $base . '/analytics.css',
+    array(),
+    file_exists($path . '/analytics.css') ? filemtime($path . '/analytics.css') : false
+  );
+
+  wp_enqueue_script(
+    'cocoon-analytics-suggest',
+    $base . '/suggest.js',
+    array(),
+    file_exists($path . '/suggest.js') ? filemtime($path . '/suggest.js') : false,
+    true
+  );
+
+  wp_enqueue_script(
+    'cocoon-click-previews',
+    $base . '/click-previews.js',
+    array(),
+    file_exists($path . '/click-previews.js') ? filemtime($path . '/click-previews.js') : false,
+    true
+  );
+
+  if (isset($_GET['view']) && $_GET['view'] === 'clicks') {
+    wp_enqueue_script('cocoon-click-filters', $base . '/click-filters.js', array(), filemtime($path . '/click-filters.js'), true);
+    wp_enqueue_script('cocoon-click-stat-tips', $base . '/click-stat-tips.js', array(), filemtime($path . '/click-stat-tips.js'), true);
+    wp_enqueue_script('cocoon-click-table-scroll', $base . '/click-table-scroll.js', array(), filemtime($path . '/click-table-scroll.js'), true);
+  }
+
+  if (isset($_GET['view'], $_GET['click_view']) && $_GET['view'] === 'clicks' && $_GET['click_view'] === 'map') {
+    wp_enqueue_script('cocoon-map-post-picker', $base . '/map-post-picker.js', array(), filemtime($path . '/map-post-picker.js'), true);
+  }
+
+  wp_enqueue_script(
+    'cocoon-analytics-js',
+    $base . '/analytics.js',
+    array('cocoon-analytics-chartjs', 'cocoon-analytics-sortablejs', 'cocoon-analytics-suggest'),
+    file_exists($path . '/analytics.js') ? filemtime($path . '/analytics.js') : false,
+    true
+  );
+}
+endif;
+
+/**
+ * チャートデータをフッタでインライン出力する。
+ * admin_enqueue_scripts はページ描画より先に走るため、
+ * ページ内で $GLOBALS にセットされたデータをフッタで注入する。
+ */
+if ( !function_exists( 'cocoon_analytics_print_data' ) ):
+function cocoon_analytics_print_data(){
+  // アクセス解析ページでのみ出力
+  $screen = function_exists('get_current_screen') ? get_current_screen() : null;
+  if (!$screen || strpos($screen->id, 'theme-access') === false) return;
+
+  $chart_data = isset($GLOBALS['cocoon_analytics_chart_data']) ? $GLOBALS['cocoon_analytics_chart_data'] : array();
+  $click_map = isset($GLOBALS['cocoon_click_map_data']) ? $GLOBALS['cocoon_click_map_data'] : array();
+
+  $weekdays = array(
+    __('日', THEME_NAME),
+    __('月', THEME_NAME),
+    __('火', THEME_NAME),
+    __('水', THEME_NAME),
+    __('木', THEME_NAME),
+    __('金', THEME_NAME),
+    __('土', THEME_NAME),
+  );
+
+  // サジェスト用の著者一覧を取得します（IDと表示名）
+  $authors = array();
+  $users = get_users(array('fields' => array('ID', 'display_name')));
+  foreach ($users as $u) {
+    $authors[] = array('id' => (int)$u->ID, 'name' => $u->display_name);
+  }
+
+  // サジェスト用のカテゴリー一覧を取得します（IDと名前）
+  $categories = array();
+  $cats = get_categories(array('hide_empty' => false));
+  foreach ($cats as $c) {
+    $categories[] = array('id' => (int)$c->term_id, 'name' => $c->name);
+  }
+
+  $payload = array(
+    'data'     => $chart_data,
+    'clickMap' => $click_map,
+    'weekdays' => $weekdays,
+    'suggest'  => array(
+      'authors'    => $authors,
+      'categories' => $categories,
+    ),
+    'ajax'     => array(
+      'url'   => admin_url('admin-ajax.php'),
+      'nonce' => wp_create_nonce('cocoon_analytics_layout'),
+      // ライフサイクルデータの非同期取得で使うセキュリティトークン（nonce）を発行します
+      'lifecycle_nonce' => wp_create_nonce('cocoon_analytics_lifecycle'),
+      // 記事検索候補だけに使うセキュリティトークンを発行します
+      'post_picker_nonce' => wp_create_nonce('cocoon_analytics_post_picker'),
+    ),
+    'i18n'     => array(
+      'pv'           => __('PV', THEME_NAME),
+      'clicks'       => __('クリック', THEME_NAME),
+      'ctr'          => __('推定CTR', THEME_NAME),
+      'date'         => __('日付', THEME_NAME),
+      'dayAfter'     => __('公開後日数', THEME_NAME),
+      'days'         => __('日', THEME_NAME),
+      'days_count'   => __('日数', THEME_NAME),
+      'partial_week' => __('部分週', THEME_NAME),
+      'saved'        => __('レイアウトを保存しました', THEME_NAME),
+      'save_failed'  => __('レイアウトの保存に失敗しました', THEME_NAME),
+      'reset_confirm'=> __('タイル配置を既定に戻しますか？', THEME_NAME),
+      // ライフサイクルで選択期間内にデータが無いときに表示するメッセージです
+      'no_period_data' => __('選択した期間のアクセスデータがありません。', THEME_NAME),
+      // ライフサイクルの期間サマリーとズームバッジに使う文言です
+      'shown_period_total' => __('表示期間の合計', THEME_NAME),
+      'list_period_total'  => __('リスト期間の合計', THEME_NAME),
+      'all_total'          => __('累計', THEME_NAME),
+      /* translators: 1: 開始日, 2: 終了日 */
+      'date_range_format'  => __('%1$s 〜 %2$s', THEME_NAME),
+      'zoom_notice'        => __('グラフはリストと異なる期間を表示中', THEME_NAME),
+      'no_posts_found'     => __('該当する記事が見つかりませんでした。', THEME_NAME),
+      'loading'            => __('読み込み中...', THEME_NAME),
+      'error_occurred'     => __('エラーが発生しました', THEME_NAME),
+      'connection_error'   => __('通信エラーが発生しました', THEME_NAME),
+      'no_matching_items'  => __('一致する項目がありません', THEME_NAME),
+      'select_post_result' => __('候補から記事を選択してください。', THEME_NAME),
+      'search_posts'       => __('記事を検索中...', THEME_NAME),
+      'popular_posts'      => __('人気記事トップ10', THEME_NAME),
+      'post_results'       => __('検索結果', THEME_NAME),
+      'pv_all_devices'     => __('PV（全端末合計）', THEME_NAME),
+      'no_popular_posts'   => __('期間内のアクセスデータがありません。記事名で検索できます。', THEME_NAME),
+      'invalid_period'     => __('開始日と終了日を正しく指定してください。', THEME_NAME),
+      // translators: %s: 記事候補の件数
+      'post_candidate_count' => __('%s件の候補', THEME_NAME),
+    ),
+  );
+
+  echo '<script id="cocoon-analytics-data">window.CocoonAnalytics = ' . wp_json_encode($payload) . ';</script>' . "\n";
+}
+endif;

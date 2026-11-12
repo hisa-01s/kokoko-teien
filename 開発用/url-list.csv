@@ -1,0 +1,130 @@
+﻿分類,URL,URL（読める形）,ステータス,リダイレクト先,タイトル,robots,発見元
+通常ページ,https://heal-place.com/,https://heal-place.com/,200,,ココロノ庭園,,probe;sitemap
+通常ページ,https://heal-place.com/column/,https://heal-place.com/column/,200,,コラム一覧 | ココロノ庭園,,link;probe;sitemap
+通常ページ,https://heal-place.com/column/heal/iraira/,https://heal-place.com/column/heal/iraira/,200,,イライラが止まらないのはなぜ？原因や考えられる病気、今すぐできる対処法と受診の目安を解説 | ココロノ庭園,,link
+通常ページ,https://heal-place.com/column/heal/tired-mind/,https://heal-place.com/column/heal/tired-mind/,200,,精神的に疲れた・心が疲れたときのサインとは？原因や特徴、対処法と回復方法を解説 | ココロノ庭園,,link;sitemap
+通常ページ,https://heal-place.com/column/heal/tired-non/,https://heal-place.com/column/heal/tired-non/,200,,何もしたくない・全部めんどくさいのは甘え？原因や考えられる病気、対処法と受診の目安を解説 | ココロノ庭園,,link;sitemap
+通常ページ,https://heal-place.com/ec/,https://heal-place.com/ec/,200,,ココロノ庭園,max-image-preview:large,probe;rest:pages;sitemap
+通常ページ,https://heal-place.com/ec/product-category/%e6%9e%af%e5%b1%b1%e6%b0%b4/,https://heal-place.com/ec/product-category/枯山水/,200,,枯山水 | ココロノ庭園,max-image-preview:large,link;rest:product_cat;sitemap
+通常ページ,https://heal-place.com/ec/product-category/uncategorized/,https://heal-place.com/ec/product-category/uncategorized/,200,,uncategorized | ココロノ庭園,max-image-preview:large,link;rest:product_cat;sitemap
+通常ページ,https://heal-place.com/ec/product/%e3%83%86%e3%82%b9%e3%83%88/,https://heal-place.com/ec/product/テスト/,200,,テスト | ココロノ庭園,max-image-preview:large,link;rest:products;rest:store_products;sitemap
+通常ページ,https://heal-place.com/ec/product/kare-san-01/,https://heal-place.com/ec/product/kare-san-01/,200,,枯山水ミニ庭園キット | ココロノ庭園,max-image-preview:large,link;rest:products;rest:store_products;sitemap
+通常ページ,https://heal-place.com/ec/shop/,https://heal-place.com/ec/shop/,200,,ショップ | ココロノ庭園,max-image-preview:large,probe;rest:pages;sitemap
+通常ページ,https://heal-place.com/kare-san/karesan-how/,https://heal-place.com/kare-san/karesan-how/,200,,枯山水の作り方｜自宅でできる手順と道具、砂紋の描き方を解説,,link;probe;sitemap
+購入・アカウント,https://heal-place.com/ec/cart/,https://heal-place.com/ec/cart/,200,,お買い物カゴ | ココロノ庭園,"max-image-preview:large, noindex, follow",link;probe;rest:pages;sitemap
+購入・アカウント,https://heal-place.com/ec/cart/?add-to-cart=14,https://heal-place.com/ec/cart/?add-to-cart=14,,,,,link
+購入・アカウント,https://heal-place.com/ec/cart/?add-to-cart=52,https://heal-place.com/ec/cart/?add-to-cart=52,,,,,link
+購入・アカウント,https://heal-place.com/ec/checkout/,https://heal-place.com/ec/checkout/,302,https://heal-place.com/ec/cart/,,,probe;rest:pages;sitemap
+購入・アカウント,https://heal-place.com/ec/my-account/,https://heal-place.com/ec/my-account/,200,,マイアカウント | ココロノ庭園,"max-image-preview:large, noindex, follow",link;probe;rest:pages;sitemap
+購入・アカウント,https://heal-place.com/ec/my-account/?action=register,https://heal-place.com/ec/my-account/?action=register,200,,マイアカウント | ココロノ庭園,"max-image-preview:large, noindex, follow",link
+購入・アカウント,https://heal-place.com/ec/my-account/edit-account/,https://heal-place.com/ec/my-account/edit-account/,200,,マイアカウント | ココロノ庭園,"max-image-preview:large, noindex, follow",probe
+購入・アカウント,https://heal-place.com/ec/my-account/lost-password/,https://heal-place.com/ec/my-account/lost-password/,200,,マイアカウント | ココロノ庭園,"max-image-preview:large, noindex, follow",link;probe
+購入・アカウント,https://heal-place.com/ec/my-account/orders/,https://heal-place.com/ec/my-account/orders/,200,,マイアカウント | ココロノ庭園,"max-image-preview:large, noindex, follow",probe
+購入・アカウント,https://heal-place.com/ec/product-category/%e6%9e%af%e5%b1%b1%e6%b0%b4/?add-to-cart=14,https://heal-place.com/ec/product-category/枯山水/?add-to-cart=14,,,,,link
+購入・アカウント,https://heal-place.com/ec/product-category/uncategorized/?add-to-cart=52,https://heal-place.com/ec/product-category/uncategorized/?add-to-cart=52,,,,,link
+購入・アカウント,https://heal-place.com/ec/shop/?add-to-cart=14,https://heal-place.com/ec/shop/?add-to-cart=14,,,,,link
+購入・アカウント,https://heal-place.com/ec/shop/?add-to-cart=52,https://heal-place.com/ec/shop/?add-to-cart=52,,,,,link
+購入・アカウント,https://heal-place.com/ec/shop/page/2/?add-to-cart=14,https://heal-place.com/ec/shop/page/2/?add-to-cart=14,,,,,link
+購入・アカウント,https://heal-place.com/ec/shop/page/2/?add-to-cart=52,https://heal-place.com/ec/shop/page/2/?add-to-cart=52,,,,,link
+購入・アカウント（ログイン/注文後）,https://heal-place.com/ec/checkout/order-pay/{注文ID}/,https://heal-place.com/ec/checkout/order-pay/{注文ID}/,,,,,WooCommerce既定パターン（未確認）
+購入・アカウント（ログイン/注文後）,https://heal-place.com/ec/checkout/order-received/{注文ID}/?key={注文キー},https://heal-place.com/ec/checkout/order-received/{注文ID}/?key={注文キー},,,,,WooCommerce既定パターン（未確認）
+購入・アカウント（ログイン/注文後）,https://heal-place.com/ec/my-account/customer-logout/,https://heal-place.com/ec/my-account/customer-logout/,,,,,WooCommerce既定パターン（未確認）
+購入・アカウント（ログイン/注文後）,https://heal-place.com/ec/my-account/downloads/,https://heal-place.com/ec/my-account/downloads/,,,,,WooCommerce既定パターン（未確認）
+購入・アカウント（ログイン/注文後）,https://heal-place.com/ec/my-account/edit-address/,https://heal-place.com/ec/my-account/edit-address/,,,,,WooCommerce既定パターン（未確認）
+購入・アカウント（ログイン/注文後）,https://heal-place.com/ec/my-account/payment-methods/,https://heal-place.com/ec/my-account/payment-methods/,,,,,WooCommerce既定パターン（未確認）
+購入・アカウント（ログイン/注文後）,https://heal-place.com/ec/my-account/view-order/{注文ID}/,https://heal-place.com/ec/my-account/view-order/{注文ID}/,,,,,WooCommerce既定パターン（未確認）
+検索・アーカイブ・フィード,https://heal-place.com/ec/?post_type=product&s=test,https://heal-place.com/ec/?post_type=product&s=test,200,,“test” の検索結果 | ココロノ庭園,"noindex, follow",probe
+検索・アーカイブ・フィード,https://heal-place.com/ec/?s=test,https://heal-place.com/ec/?s=test,200,,“test” の検索結果 | ココロノ庭園,"noindex, follow",probe
+検索・アーカイブ・フィード,https://heal-place.com/ec/?taxonomy=product_type&term=simple,https://heal-place.com/ec/?taxonomy=product_type&term=simple,200,,ココロノ庭園,max-image-preview:large,link
+検索・アーカイブ・フィード,https://heal-place.com/ec/author/user001/,https://heal-place.com/ec/author/user001/,200,,user001 | ココロノ庭園,"noindex, follow",rest:users
+検索・アーカイブ・フィード,https://heal-place.com/ec/category/uncategorized/,https://heal-place.com/ec/category/uncategorized/,200,,未分類 | ココロノ庭園,max-image-preview:large,rest:categories
+検索・アーカイブ・フィード,https://heal-place.com/ec/comments/feed/,https://heal-place.com/ec/comments/feed/,200,,,,probe
+検索・アーカイブ・フィード,https://heal-place.com/ec/feed/,https://heal-place.com/ec/feed/,200,,,,probe
+検索・アーカイブ・フィード,https://heal-place.com/ec/page/2/,https://heal-place.com/ec/page/2/,200,,ココロノ庭園 | ページ 2,max-image-preview:large,probe
+検索・アーカイブ・フィード,https://heal-place.com/ec/search/test/,https://heal-place.com/ec/search/test/,200,,“test” の検索結果 | ココロノ庭園,"noindex, follow",probe
+検索・アーカイブ・フィード,https://heal-place.com/ec/shop/page/2/,https://heal-place.com/ec/shop/page/2/,200,,ショップ | ページ 2 | ココロノ庭園,max-image-preview:large,probe
+画像,https://heal-place.com/asset/image/account.svg,https://heal-place.com/asset/image/account.svg,200,,,,local-files
+画像,https://heal-place.com/asset/image/cart.svg,https://heal-place.com/asset/image/cart.svg,200,,,,local-files
+画像,https://heal-place.com/asset/image/iraira-eyecatch.webp,https://heal-place.com/asset/image/iraira-eyecatch.webp,200,,,,local-files
+画像,https://heal-place.com/asset/image/karesan-how-eyecatch.webp,https://heal-place.com/asset/image/karesan-how-eyecatch.webp,200,,,,local-files
+画像,https://heal-place.com/asset/image/logo-mark.webp,https://heal-place.com/asset/image/logo-mark.webp,200,,,,local-files
+画像,https://heal-place.com/asset/image/tired-mind-eyecatch.webp,https://heal-place.com/asset/image/tired-mind-eyecatch.webp,200,,,,local-files
+画像,https://heal-place.com/asset/image/tired-non-eyecatch.webp,https://heal-place.com/asset/image/tired-non-eyecatch.webp,200,,,,local-files
+画像,https://heal-place.com/asset/image/top.png,https://heal-place.com/asset/image/top.png,200,,,,local-files
+画像,https://heal-place.com/ec/wp-content/uploads/2026/10/33fae778-3974-48ae-a193-b08f8536c40c.png,https://heal-place.com/ec/wp-content/uploads/2026/10/33fae778-3974-48ae-a193-b08f8536c40c.png,200,,,,link;redirect;rest:media-file
+画像,https://heal-place.com/ec/wp-content/uploads/2026/10/454b68bf4bf1fb57fff61d50018b07c2.png,https://heal-place.com/ec/wp-content/uploads/2026/10/454b68bf4bf1fb57fff61d50018b07c2.png,200,,,,link;redirect;rest:media-file
+画像,https://heal-place.com/ec/wp-content/uploads/2026/10/6735dd12-a5de-4bcc-b60a-55d080b267e7.png,https://heal-place.com/ec/wp-content/uploads/2026/10/6735dd12-a5de-4bcc-b60a-55d080b267e7.png,200,,,,link;redirect;rest:media-file
+画像,https://heal-place.com/ec/wp-content/uploads/2026/10/S0499316e157846849b37122fbcf3e183W.webp,https://heal-place.com/ec/wp-content/uploads/2026/10/S0499316e157846849b37122fbcf3e183W.webp,200,,,,redirect;rest:media-file
+画像,https://heal-place.com/ec/wp-content/uploads/2026/10/S6b421075905443a18a497b4d2b14cfe7P.webp,https://heal-place.com/ec/wp-content/uploads/2026/10/S6b421075905443a18a497b4d2b14cfe7P.webp,200,,,,redirect;rest:media-file
+画像,https://heal-place.com/ec/wp-content/uploads/2026/10/S9df6a7d682a949cea33acfd890a81f27h.webp,https://heal-place.com/ec/wp-content/uploads/2026/10/S9df6a7d682a949cea33acfd890a81f27h.webp,200,,,,redirect;rest:media-file
+画像,https://heal-place.com/ec/wp-content/uploads/2026/10/Sc79239c9be03441184a9ba19008eb64aL.webp,https://heal-place.com/ec/wp-content/uploads/2026/10/Sc79239c9be03441184a9ba19008eb64aL.webp,200,,,,redirect;rest:media-file
+システム,https://heal-place.com/ec/license.txt,https://heal-place.com/ec/license.txt,200,,,,link;probe
+システム,https://heal-place.com/ec/readme.html,https://heal-place.com/ec/readme.html,200,,WordPress › ReadMe,"noindex,nofollow",probe
+システム,https://heal-place.com/ec/wp-admin/import.php,https://heal-place.com/ec/wp-admin/import.php,,,,,link
+システム,https://heal-place.com/ec/wp-admin/install.php,https://heal-place.com/ec/wp-admin/install.php,,,,,link
+システム,https://heal-place.com/ec/wp-admin/update-core.php,https://heal-place.com/ec/wp-admin/update-core.php,,,,,link
+システム,https://heal-place.com/ec/wp-admin/upgrade.php,https://heal-place.com/ec/wp-admin/upgrade.php,,,,,link
+システム,https://heal-place.com/ec/wp-content/plugins/,https://heal-place.com/ec/wp-content/plugins/,200,,,,probe
+システム,https://heal-place.com/ec/wp-content/themes/,https://heal-place.com/ec/wp-content/themes/,200,,,,probe
+システム,https://heal-place.com/ec/wp-json/,https://heal-place.com/ec/wp-json/,200,,,,probe
+システム,https://heal-place.com/ec/wp-links-opml.php,https://heal-place.com/ec/wp-links-opml.php,200,,,,probe
+システム,https://heal-place.com/ec/wp-login.php,https://heal-place.com/ec/wp-login.php,200,,ログイン ‹ ココロノ庭園 — WordPress,"max-image-preview:large, noindex, noarchive",probe
+システム,https://heal-place.com/ec/wp-login.php?action=lostpassword,https://heal-place.com/ec/wp-login.php?action=lostpassword,,,,,link
+システム,https://heal-place.com/ec/wp-login.php?action=register,https://heal-place.com/ec/wp-login.php?action=register,,,,,redirect
+システム,https://heal-place.com/ec/wp-login.php?redirect_to=https%3A%2F%2Fheal-place.com%2Fec%2Fwp-admin%2F&reauth=1,https://heal-place.com/ec/wp-login.php?redirect_to=https://heal-place.com/ec/wp-admin/&reauth=1,,,,,redirect
+システム,https://heal-place.com/ec/wp-sitemap-posts-page-1.xml,https://heal-place.com/ec/wp-sitemap-posts-page-1.xml,200,,,,sitemap
+システム,https://heal-place.com/ec/wp-sitemap-posts-product-1.xml,https://heal-place.com/ec/wp-sitemap-posts-product-1.xml,200,,,,sitemap
+システム,https://heal-place.com/ec/wp-sitemap-taxonomies-product_cat-1.xml,https://heal-place.com/ec/wp-sitemap-taxonomies-product_cat-1.xml,200,,,,sitemap
+システム,https://heal-place.com/ec/wp-sitemap.xml,https://heal-place.com/ec/wp-sitemap.xml,200,,,,probe
+システム,https://heal-place.com/sitemap.xml,https://heal-place.com/sitemap.xml,200,,,,probe
+リダイレクト,https://heal-place.com/column/culture/karesan-how/,https://heal-place.com/column/culture/karesan-how/,301,https://heal-place.com/kare-san/karesan-how/,301 Moved Permanently,,probe
+リダイレクト,https://heal-place.com/column/heal/karesan-how/,https://heal-place.com/column/heal/karesan-how/,301,https://heal-place.com/kare-san/karesan-how/,301 Moved Permanently,,probe
+リダイレクト,https://heal-place.com/column/index.html,https://heal-place.com/column/index.html,301,https://heal-place.com/column/,301 Moved Permanently,,probe
+リダイレクト,https://heal-place.com/ec,https://heal-place.com/ec,301,https://heal-place.com/ec/,301 Moved Permanently,,link
+リダイレクト,https://heal-place.com/ec/?attachment_id=47,https://heal-place.com/ec/?attachment_id=47,301,https://heal-place.com/ec/wp-content/uploads/2026/10/6735dd12-a5de-4bcc-b60a-55d080b267e7.png,,,rest:media
+リダイレクト,https://heal-place.com/ec/?attachment_id=49,https://heal-place.com/ec/?attachment_id=49,301,https://heal-place.com/ec/wp-content/uploads/2026/10/33fae778-3974-48ae-a193-b08f8536c40c.png,,,rest:media
+リダイレクト,https://heal-place.com/ec/?attachment_id=50,https://heal-place.com/ec/?attachment_id=50,301,https://heal-place.com/ec/wp-content/uploads/2026/10/454b68bf4bf1fb57fff61d50018b07c2.png,,,rest:media
+リダイレクト,https://heal-place.com/ec/?author=1,https://heal-place.com/ec/?author=1,301,https://heal-place.com/ec/author/user001/,,,probe
+リダイレクト,https://heal-place.com/ec/s0499316e157846849b37122fbcf3e183w-webp/,https://heal-place.com/ec/s0499316e157846849b37122fbcf3e183w-webp/,301,https://heal-place.com/ec/wp-content/uploads/2026/10/S0499316e157846849b37122fbcf3e183W.webp,,,rest:media
+リダイレクト,https://heal-place.com/ec/s6b421075905443a18a497b4d2b14cfe7p-webp/,https://heal-place.com/ec/s6b421075905443a18a497b4d2b14cfe7p-webp/,301,https://heal-place.com/ec/wp-content/uploads/2026/10/S6b421075905443a18a497b4d2b14cfe7P.webp,,,rest:media
+リダイレクト,https://heal-place.com/ec/s9df6a7d682a949cea33acfd890a81f27h-webp/,https://heal-place.com/ec/s9df6a7d682a949cea33acfd890a81f27h-webp/,301,https://heal-place.com/ec/wp-content/uploads/2026/10/S9df6a7d682a949cea33acfd890a81f27h.webp,,,rest:media
+リダイレクト,https://heal-place.com/ec/sample-page/,https://heal-place.com/ec/sample-page/,301,https://heal-place.com/ec/,,,probe
+リダイレクト,https://heal-place.com/ec/sc79239c9be03441184a9ba19008eb64al-webp/,https://heal-place.com/ec/sc79239c9be03441184a9ba19008eb64al-webp/,301,https://heal-place.com/ec/wp-content/uploads/2026/10/Sc79239c9be03441184a9ba19008eb64aL.webp,,,rest:media
+リダイレクト,https://heal-place.com/ec/wp-activate.php,https://heal-place.com/ec/wp-activate.php,302,https://heal-place.com/ec/wp-login.php?action=register,,,probe
+リダイレクト,https://heal-place.com/ec/wp-admin/,https://heal-place.com/ec/wp-admin/,302,https://heal-place.com/ec/wp-login.php?redirect_to=https%3A%2F%2Fheal-place.com%2Fec%2Fwp-admin%2F&reauth=1,,,probe
+リダイレクト,https://heal-place.com/ec/wp-signup.php,https://heal-place.com/ec/wp-signup.php,302,https://heal-place.com/ec/wp-login.php?action=register,,,probe
+リダイレクト,https://heal-place.com/heal/tired-non/,https://heal-place.com/heal/tired-non/,301,https://heal-place.com/column/heal/tired-non/,301 Moved Permanently,,probe
+リダイレクト,https://heal-place.com/index.html,https://heal-place.com/index.html,301,https://heal-place.com/,301 Moved Permanently,,probe
+到達不可,https://heal-place.com/aqua/,https://heal-place.com/aqua/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/asset/,https://heal-place.com/asset/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/asset/image/,https://heal-place.com/asset/image/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/column/culture/,https://heal-place.com/column/culture/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/column/heal/,https://heal-place.com/column/heal/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/ec/?page_id=3,https://heal-place.com/ec/?page_id=3,404,,404 NOT FOUND | ココロノ庭園,"noindex, follow",link
+到達不可,https://heal-place.com/ec/author/admin/,https://heal-place.com/ec/author/admin/,404,,404 NOT FOUND | ココロノ庭園,"noindex, follow",probe
+到達不可,https://heal-place.com/ec/hello-world/,https://heal-place.com/ec/hello-world/,404,,404 NOT FOUND | ココロノ庭園,"noindex, follow",probe
+到達不可,https://heal-place.com/ec/wp-content/uploads/,https://heal-place.com/ec/wp-content/uploads/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/ec/wp-includes/,https://heal-place.com/ec/wp-includes/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/ec/wp-trackback.php,https://heal-place.com/ec/wp-trackback.php,404,,,,probe
+到達不可,https://heal-place.com/ec/xmlrpc.php,https://heal-place.com/ec/xmlrpc.php,405,,,,probe
+到達不可,https://heal-place.com/favicon.ico,https://heal-place.com/favicon.ico,404,,404 Error - Not Found,,probe
+到達不可,https://heal-place.com/kare-san/,https://heal-place.com/kare-san/,403,,403 Error - Forbidden,,probe
+到達不可,https://heal-place.com/robots.txt,https://heal-place.com/robots.txt,404,,404 Error - Not Found,,probe
+旧サイト(/ec_/),http://heal-place.com/ec_,http://heal-place.com/ec_,301,http://heal-place.com/ec_/,301 Moved Permanently,,link
+旧サイト(/ec_/),http://heal-place.com/ec_/,http://heal-place.com/ec_/,200,,ココロノ庭園,max-image-preview:large,redirect
+旧サイト(/ec_/),http://heal-place.com/ec_/2026/10/,http://heal-place.com/ec_/2026/10/,200,,2026年10月 | ココロノ庭園,"noindex, follow",link
+旧サイト(/ec_/),http://heal-place.com/ec_/2026/10/22/hello-world/,http://heal-place.com/ec_/2026/10/22/hello-world/,200,,Hello world! | ココロノ庭園,max-image-preview:large,link
+旧サイト(/ec_/),http://heal-place.com/ec_/2026/10/22/hello-world/?replytocom=1,http://heal-place.com/ec_/2026/10/22/hello-world/?replytocom=1,200,,Hello world! | ココロノ庭園,"max-image-preview:large, noindex, follow",link
+旧サイト(/ec_/),http://heal-place.com/ec_/author/user001/,http://heal-place.com/ec_/author/user001/,200,,user001 | ココロノ庭園,"noindex, follow",link
+旧サイト(/ec_/),http://heal-place.com/ec_/category/uncategorized/,http://heal-place.com/ec_/category/uncategorized/,200,,未分類 | ココロノ庭園,max-image-preview:large,link
+旧サイト(/ec_/),http://heal-place.com/ec_/feed/,http://heal-place.com/ec_/feed/,200,,,,link
+旧サイト(/ec_/),http://heal-place.com/ec_/wp-comments-post.php,http://heal-place.com/ec_/wp-comments-post.php,405,,,,link
+旧サイト(/ec_/),https://heal-place.com/ec_,https://heal-place.com/ec_,301,https://heal-place.com/ec_/,301 Moved Permanently,,link
+旧サイト(/ec_/),https://heal-place.com/ec_/,https://heal-place.com/ec_/,200,,ココロノ庭園,max-image-preview:large,probe
+旧サイト(/ec_/),https://heal-place.com/ec_/2026/10/,https://heal-place.com/ec_/2026/10/,200,,2026年10月 | ココロノ庭園,"noindex, follow",link
+旧サイト(/ec_/),https://heal-place.com/ec_/2026/10/22/hello-world/,https://heal-place.com/ec_/2026/10/22/hello-world/,200,,Hello world! | ココロノ庭園,max-image-preview:large,link
+旧サイト(/ec_/),https://heal-place.com/ec_/2026/10/22/hello-world/?replytocom=1,https://heal-place.com/ec_/2026/10/22/hello-world/?replytocom=1,200,,Hello world! | ココロノ庭園,"max-image-preview:large, noindex, follow",link
+旧サイト(/ec_/),https://heal-place.com/ec_/author/user001/,https://heal-place.com/ec_/author/user001/,200,,user001 | ココロノ庭園,"noindex, follow",link
+旧サイト(/ec_/),https://heal-place.com/ec_/category/uncategorized/,https://heal-place.com/ec_/category/uncategorized/,200,,未分類 | ココロノ庭園,max-image-preview:large,link
+旧サイト(/ec_/),https://heal-place.com/ec_/feed/,https://heal-place.com/ec_/feed/,200,,,,link
+旧サイト(/ec_/),https://heal-place.com/ec_/wp-comments-post.php,https://heal-place.com/ec_/wp-comments-post.php,405,,,,link

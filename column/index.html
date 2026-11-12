@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ファビコン -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/asset/image/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/asset/image/favicon-192.png">
+<link rel="apple-touch-icon" href="/asset/image/apple-touch-icon.png">
+
+<!-- Google タグ（GA4）※heal-place.com/ec/ と同じID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-BCLRRNL6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GT-BCLRRNL6');
+</script>
+
+<!-- Google Search Console 所有権確認 -->
+<meta name="google-site-verification" content="mt-re1tV8P2szHFN1_EK3ncqbhgSs4AkueXvEoqhahU" />
+
+<!-- Google Tag Manager（参照ページには未設置。使う場合はIDを入れてコメントを外す）
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+<!-- ===== SEO ===== -->
+<title>コラム一覧 | ココロノ庭園</title>
+<meta name="description" content="心の疲れやストレスとの付き合い方など、ココロノ庭園のコラム記事一覧です。">
+<!-- 公開URLが決まったら設定 -->
+<!-- <link rel="canonical" href="https://heal-place.com/column/"> -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ココロノ庭園">
+<meta property="og:title" content="コラム一覧 | ココロノ庭園">
+<meta property="og:description" content="心の疲れやストレスとの付き合い方など、ココロノ庭園のコラム記事一覧です。">
+<!-- <meta property="og:url" content="https://heal-place.com/column/"> -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Caudex:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;          /* 白 */
+    --bg-sub:#ffffff;
+    --white:#ffffff;
+    --text:#121212;
+    --text-sub:rgba(18,18,18,.75);
+    --green:#033521;       /* 深緑 */
+    --gold:#bc964c;        /* 金茶 */
+    --dark:#3a3a38;        /* 墨色 */
+    --line:rgba(18,18,18,.12);
+    --img:#c9c9c4;         /* 画像プレースホルダー */
+    --img-dark:#8f8f8a;
+    --serif:"BIZ UDPMincho",serif;
+    --en:"Caudex",serif;
+    --sans:"Noto Sans JP",sans-serif;
+    --w:1200px;
+    --article:780px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:120px}
+  body{background:var(--bg);color:var(--text-sub);font-family:var(--sans);font-size:15px;line-height:1.9;letter-spacing:.06em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .inner{max-width:var(--w);margin:0 auto;padding:0 40px}
+
+  /* 画像プレースホルダー */
+  .ph{background:var(--img);position:relative;overflow:hidden}
+  .ph::after{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-family:var(--en);font-size:14px;letter-spacing:.15em}
+
+  /* 見出し */
+  .en{display:flex;align-items:center;gap:8px;font-family:var(--en);font-size:14px;color:var(--text-sub);letter-spacing:.08em}
+  .en::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  h1,h2,h3{font-family:var(--serif);color:var(--text);font-weight:400;letter-spacing:.1em}
+
+  /* ボタン */
+  .btn{display:inline-flex;align-items:center;justify-content:space-between;width:210px;height:59px;padding:0 24px;background:var(--text);color:#fff;font-family:var(--en);font-size:16px;letter-spacing:.06em;transition:opacity .3s}
+  .btn:hover{opacity:.8}
+  .btn svg{width:14px}
+
+  /* ===== ヘッダー（TOPと共通） ===== */
+  .sns{display:flex;gap:18px}
+  .sns span{width:18px;height:18px;border-radius:50%;background:var(--text)}
+  header.site{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--line)}
+  /* ec（WordPress）側に合わせる：Cocoonの文字詰めと字間 */
+  header.site{font-feature-settings:"palt";letter-spacing:.96px}
+  header.site .inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:20px;padding-bottom:14px}
+  .hd-icons{position:absolute;top:24px;right:40px;display:flex;gap:28px}
+  .hd-icons a{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--green);transition:opacity .3s}
+  .hd-icons a:hover{opacity:.6}
+  .hd-icons img{width:22px;height:22px}
+  /* カートの商品数バッジ（中身はページ下部のスクリプトで反映） */
+  .hd-icons a{position:relative}
+  .cart-count{position:absolute;left:13px;top:-8px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--green);color:#fff;font-family:var(--sans);font-size:11px;font-weight:700;font-style:normal;line-height:18px;letter-spacing:0;text-align:center;box-shadow:0 0 0 2px var(--white)}
+  .cart-count[hidden]{display:none}
+  .logo{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--green);line-height:1;text-align:center}
+  .logo b{display:block;font-size:30px;font-weight:700;letter-spacing:.06em}
+  /* ヘッダー：タイトルの左にロゴマーク */
+  header.site .logo{display:flex;align-items:center;gap:10px}
+  header.site .logo img{width:46px;height:46px}
+  nav.gnav ul{display:flex;justify-content:center;gap:40px;list-style:none;font-size:15px}
+  nav.gnav a{padding-bottom:3px;border-bottom:1px solid transparent}
+  nav.gnav a:hover,nav.gnav a.cur{border-color:var(--text);color:var(--text)}
+
+  /* ===== パンくず ===== */
+  .breadcrumb{font-size:12px;padding:18px 0}
+  .breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+  .breadcrumb li+li::before{content:"›";margin-right:6px;color:var(--gold)}
+  .breadcrumb a:hover{text-decoration:underline}
+
+  /* ===== コラム一覧 ===== */
+  .list-head{padding:40px 0 48px}
+  .list-head h1{font-size:30px;line-height:1.6;margin-top:6px}
+  .list-head p.lead{margin-top:14px}
+  .col-list{padding-bottom:110px}
+  /* カテゴリごとに1行で表示し、5件目以降は横スクロール */
+  .col-grid{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 72px)/4);gap:24px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+  .col-grid>a{scroll-snap-align:start}
+  .col-grid a{display:block}
+  .col-grid .ph{aspect-ratio:16/10;margin-bottom:14px;transition:opacity .3s}
+  .col-grid a:hover .ph{opacity:.8}
+  .col-grid .thumb{aspect-ratio:1/1;margin-bottom:14px;overflow:hidden}
+  .col-grid .thumb img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+  .col-grid a:hover .thumb img{opacity:.8}
+  .col-grid h3{font-size:15px;line-height:1.6;margin:4px 0 6px}
+  /* カテゴリごとの区切り */
+  .cat-nav{display:flex;flex-wrap:wrap;gap:12px;margin:-16px 0 56px}
+  .cat-nav a{padding:6px 20px;border:1px solid var(--line);border-radius:999px;font-size:14px;transition:border-color .3s,color .3s}
+  .cat-nav a:hover{border-color:var(--green);color:var(--green)}
+  .cat-sec{scroll-margin-top:140px}
+  .cat-sec+.cat-sec{margin-top:96px}
+  .cat-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;padding-bottom:14px;border-bottom:1px solid var(--line);position:relative}
+  .cat-head::after{content:"";position:absolute;left:0;bottom:-1px;width:80px;height:2px;background:var(--gold)}
+  .cat-head h2{font-size:24px;line-height:1.5}
+  .cat-head .en::before{display:none}
+  .col-grid time{font-size:13px}
+
+  /* ===== フッター（TOPと共通） ===== */
+  footer{padding:80px 0 30px;background:var(--green);color:#fff;font-size:14px}
+  footer .logo{color:#fff}
+  .f-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.25)}
+  .f-top h4{font-family:var(--en);font-size:16px;color:#fff;font-weight:400;margin-bottom:14px}
+  .f-top ul{list-style:none}
+  .f-top li{margin-bottom:6px}
+  .f-top a:hover{text-decoration:underline}
+  .f-bottom{display:flex;justify-content:flex-end;align-items:center;padding-top:28px;font-size:12px}
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width:900px){
+    .inner{padding:0 16px}
+    header.site .inner{gap:10px;padding-top:14px;padding-bottom:10px}
+    .hd-icons{top:16px;right:16px;gap:12px}
+    header.site .logo{align-self:flex-start;gap:8px}
+    header.site .logo img{width:36px;height:36px}
+    .hd-icons span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    nav.gnav ul{flex-wrap:wrap;gap:4px 20px;font-size:13px;letter-spacing:.03em}
+    nav.gnav a{white-space:nowrap}
+    .list-head{padding:16px 0 32px}
+    .cat-nav{margin:-8px 0 40px}
+    .cat-sec+.cat-sec{margin-top:64px}
+    .cat-head h2{font-size:20px}
+    .list-head h1{font-size:22px}
+    .col-grid{grid-auto-columns:44%;gap:14px}
+    .col-grid h3{font-size:14px}
+    .col-grid time{font-size:12px}
+    .col-list{padding-bottom:72px}
+    .f-top{grid-template-columns:1fr}
+    .f-bottom{flex-direction:column;gap:14px}
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript)（使う場合はIDを入れてコメントを外す）
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+-->
+
+<!-- ヘッダー -->
+<header class="site">
+  <div class="inner">
+    <a href="/" class="logo"><img src="../asset/image/logo-mark.webp" alt="" width="46" height="46"><b>ココロノ庭園</b></a>
+    <nav class="gnav">
+      <ul>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/column/" class="cur">コラム</a></li>
+      </ul>
+    </nav>
+    <div class="hd-icons">
+      <a href="https://heal-place.com/ec/my-account/"><img src="../asset/image/account.svg" alt="" width="22" height="22"><span>マイアカウント</span></a>
+      <a href="https://heal-place.com/ec/cart/"><img src="../asset/image/cart.svg" alt="" width="22" height="22"><b class="cart-count" hidden></b><span>カート</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="inner">
+    <!-- パンくず -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="/">ホーム</a></li>
+        <li>コラム</li>
+      </ol>
+    </nav>
+
+    <div class="list-head">
+      <p class="en">Column</p>
+      <h1>コラム</h1>
+      <p class="lead">日本の癒し文化や、心の疲れとの付き合い方など、毎日を少し楽にするヒントをお届けします。</p>
+    </div>
+
+    <nav class="cat-nav" aria-label="カテゴリ">
+      <a href="#culture">文化</a>
+      <a href="#hobby">趣味</a>
+      <a href="#mindfulness">マインドフルネス</a>
+    </nav>
+
+    <section class="col-list">
+      <section class="cat-sec" id="culture">
+        <div class="cat-head"><h2>文化</h2><p class="en">Culture</p></div>
+        <div class="col-grid">
+          <a href="/column/culture/kin_benefit/">
+            <div class="thumb"><img src="../asset/image/kin_benefit-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺のご利益とお守り一覧｜金運・厄除けの効果と境内の不動堂</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/culture/kin_cafe/">
+            <div class="thumb"><img src="../asset/image/kin_cafe-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺周辺のカフェ｜ランチ・スイーツが楽しめる人気店の選び方</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/culture/kin_lunch/">
+            <div class="thumb"><img src="../asset/image/kin_lunch-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺周辺の安いランチ｜和食・洋食のおすすめと修学旅行向けのお店選び</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/culture/kin_reflect/">
+            <div class="thumb"><img src="../asset/image/kin_reflect-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>逆さ金閣寺とは？鏡湖池に映る絶景の撮影スポットと見られる条件</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/culture/kin_yasaka/">
+            <div class="thumb"><img src="../asset/image/kin_yasaka-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺から八坂神社への行き方｜バス・電車・タクシーの比較</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/culture/asuka_pond/">
+            <div class="thumb"><img src="../asset/image/asuka_pond-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>飛鳥京跡苑池とは？日本最古級の宮廷庭園の遺跡の特徴と発見の経緯、見学のポイント</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/awata_sanso/">
+            <div class="thumb"><img src="../asset/image/awata_sanso-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>粟田山荘とは？京都・東山の料亭旅館の歴史と小川治兵衛作庭と伝わる庭園「石翠」</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/chishaku_garden/">
+            <div class="thumb"><img src="../asset/image/chishaku_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>智積院の庭園とは？利休好みと伝わる名勝庭園の特徴と見どころ、長谷川等伯の障壁画と拝観</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/enshu_garden/">
+            <div class="thumb"><img src="../asset/image/enshu_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>小堀遠州の庭とは？「綺麗さび」の作風と特徴、金地院・孤篷庵・頼久寺など代表的な庭園</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/garden_cafe/">
+            <div class="thumb"><img src="../asset/image/garden_cafe-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>庭園カフェの楽しみ方｜日本庭園を眺めながらくつろげるカフェの選び方と京都・東京のおすすめ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/gin_garden/">
+            <div class="thumb"><img src="../asset/image/gin_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>銀閣寺の庭とは？銀沙灘・向月台の枯山水と池泉回遊式庭園の見どころ、鑑賞のポイント</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/gin_look/">
+            <div class="thumb"><img src="../asset/image/gin_look-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>銀閣寺の見どころを解説｜国宝の観音殿と東求堂、銀沙灘・向月台、庭園の順路と所要時間</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/gyosen_kaku/">
+            <div class="thumb"><img src="../asset/image/gyosen_kaku-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>迎仙閣とは？長崎の非公開の邸宅と回遊式庭園、年に数日だけの紅葉の一般公開</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/hama_gate/">
+            <div class="thumb"><img src="../asset/image/hama_gate-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>浜離宮恩賜庭園の入り口はどこ？大手門口・中の御門口・水上バス発着場の行き方と選び方</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/hashin_tei/">
+            <div class="thumb"><img src="../asset/image/hashin_tei-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>波心庭とは？東福寺塔頭・光明院の重森三玲作の枯山水、「虹の苔寺」の見どころと拝観</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/heian_hotel/">
+            <div class="thumb"><img src="../asset/image/heian_hotel-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>御所西 京都平安ホテルの日本庭園とは？公家屋敷の池泉回遊式庭園と小川治兵衛による改修</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/higa_garden/">
+            <div class="thumb"><img src="../asset/image/higa_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>横浜公園の彼我庭園とは？日本人と外国人の公園の歴史を伝える日本庭園の見どころ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/himeyama_park/">
+            <div class="thumb"><img src="../asset/image/himeyama_park-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>姫山公園とは？姫路城の北側に広がる桜・紅葉の名所と原生林、散策のポイント</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/hosen_in/">
+            <div class="thumb"><img src="../asset/image/hosen_in-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>大原・宝泉院の見どころ｜額縁庭園の盤桓園と樹齢700年の五葉松、伏見城の血天井とは</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/joruri_garden/">
+            <div class="thumb"><img src="../asset/image/joruri_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>浄瑠璃寺の庭園とは？九体阿弥陀と三重塔が池を挟んで向き合う浄土庭園の見どころ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/jp_garden/">
+            <div class="thumb"><img src="../asset/image/jp_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>日本庭園とは？種類と特徴、歴史の流れと全国の名園、鑑賞のポイントをわかりやすく解説</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/jp_three/">
+            <div class="thumb"><img src="../asset/image/jp_three-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>日本三大庭園とは？兼六園・後楽園・偕楽園の特徴と見どころ、選ばれた理由と比較</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kamakura_garden/">
+            <div class="thumb"><img src="../asset/image/kamakura_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>鎌倉の庭園おすすめ｜瑞泉寺・建長寺・円覚寺・報国寺など禅寺の名庭と見どころ、巡り方</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/karasu_pond/">
+            <div class="thumb"><img src="../asset/image/karasu_pond-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>烏山の鴨池（弁天池）とは？世田谷・烏山寺町の高源院にある湧水の池と浮御堂の見どころ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/karesan_garden/">
+            <div class="thumb"><img src="../asset/image/karesan_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>枯山水の庭園とは？意味と特徴、石と白砂が表すもの、歴史と有名な庭をわかりやすく解説</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/katsura_site/">
+            <div class="thumb"><img src="../asset/image/katsura_site-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>京都御苑の桂宮邸跡とは？桂離宮を造った宮家の屋敷跡と二条城に移された御殿の歴史</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kin_garden/">
+            <div class="thumb"><img src="../asset/image/kin_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺の庭園とは？鏡湖池の島々と石組、龍門滝など池泉回遊式庭園の見どころを解説</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kisho_an/">
+            <div class="thumb"><img src="../asset/image/kisho_an-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>茶室 葵松庵とは？岡崎城公園で日本庭園を眺めながら抹茶を楽しむ「葵松庵・城南亭」</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kitayama_park/">
+            <div class="thumb"><img src="../asset/image/kitayama_park-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>北山緑化植物園とは？西宮・甲陽園の無料で楽しめる植物園の見どころと四季の花</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kochidani_amida/">
+            <div class="thumb"><img src="../asset/image/kochidani_amida-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>古知谷阿弥陀寺とは？大原の奥にある紅葉の名所と樹齢800年のカエデ、弾誓上人と拝観情報</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kofuku_garden/">
+            <div class="thumb"><img src="../asset/image/kofuku_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>香福寺の池と庭園とは？相模原・橋本の禅寺に広がる福住豊作庭の池泉回遊式庭園の見どころ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kondaya_kurogura/">
+            <div class="thumb"><img src="../asset/image/kondaya_kurogura-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>誉田屋源兵衛の竹院の間と黒蔵とは？室町の老舗帯匠の町家とKYOTOGRAPHIEの展示空間</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/korin_in/">
+            <div class="thumb"><img src="../asset/image/korin_in-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>高台寺 岡林院とは？通常非公開の苔庭と茶室、特別公開や拝観できる機会を解説</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kosei_in/">
+            <div class="thumb"><img src="../asset/image/kosei_in-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>廣誠院とは？伊集院兼常が作庭した高瀬川の水を引く庭と書院、特別公開の楽しみ方</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kujo_site/">
+            <div class="thumb"><img src="../asset/image/kujo_site-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>京都御苑の九条邸跡とは？九条池と拾翠亭、厳島神社の見どころと散策のポイント</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/hyakudan_en/">
+            <div class="thumb"><img src="../asset/image/hyakudan_en-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>淡路夢舞台の百段苑とは？安藤忠雄が設計した100の花壇が並ぶ階段庭園の見どころ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/jiun_ji/">
+            <div class="thumb"><img src="../asset/image/jiun_ji-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>白華山慈雲寺とは？長野・下諏訪の禅寺の枯山水と池泉庭園、天桂の松の見どころ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/jodo_garden/">
+            <div class="thumb"><img src="../asset/image/jodo_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>浄土庭園とは？極楽浄土を表した庭の特徴と歴史、平等院・毛越寺・浄瑠璃寺など代表例</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/join_ji/">
+            <div class="thumb"><img src="../asset/image/join_ji-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>行道山浄因寺とは？足利の「関東の高野山」と巨石の上の清心亭、葛飾北斎が描いた絶景</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kyoto_garden/">
+            <div class="thumb"><img src="../asset/image/kyoto_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>京都の庭園おすすめ｜枯山水・池泉回遊式の名庭とエリア別の巡り方、鑑賞のポイント</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/kyoto_karesan/">
+            <div class="thumb"><img src="../asset/image/kyoto_karesan-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>京都の枯山水の名所おすすめ｜龍安寺・大仙院・東福寺など名庭の特徴とエリア別の巡り方</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/mitaki_ji/">
+            <div class="thumb"><img src="../asset/image/mitaki_ji-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>広島の三滝寺（三瀧寺）とは？三つの滝と重森三玲の「補陀落の庭」、紅葉の見どころ</h3>
+            <time datetime="2026-11-06">2026.11.06</time>
+          </a>
+          <a href="/column/culture/ryo_souvenir/">
+            <div class="thumb"><img src="../asset/image/ryo_souvenir-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>龍安寺のお土産おすすめ｜「吾唯足知」グッズや御朱印、石庭モチーフの品と周辺で買える京土産</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/ryo_heritage/">
+            <div class="thumb"><img src="../asset/image/ryo_heritage-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>龍安寺はなぜ世界遺産？「古都京都の文化財」に登録された理由と石庭の価値、見学のポイント</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/kin_feature/">
+            <div class="thumb"><img src="../asset/image/kin_feature-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺の特徴とは？三層の建築様式や大きさ、境内に何があるかと魅力をわかりやすく解説</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/kin_access/">
+            <div class="thumb"><img src="../asset/image/kin_access-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>京都駅から金閣寺へのアクセス｜バス・電車の行き方と最寄り駅、金閣寺道バス停からの道順</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/kin_time/">
+            <div class="thumb"><img src="../asset/image/kin_time-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺の所要時間はどのくらい？拝観の目安と混雑を避ける時間帯、周辺とあわせた回り方</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/kin_school/">
+            <div class="thumb"><img src="../asset/image/kin_school-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>修学旅行で金閣寺を見学するなら｜見どころとレポートに役立つ歴史、班行動のコツ</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/arashi_ryo/">
+            <div class="thumb"><img src="../asset/image/arashi_ryo-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>嵐山から龍安寺への行き方｜嵐電・バス・タクシーのアクセスと、天龍寺と組み合わせるモデルコース</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/nin_about/">
+            <div class="thumb"><img src="../asset/image/nin_about-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>仁和寺とはどんなお寺？宇多天皇が開いた「御室御所」の歴史と見どころ、京都御室の由来</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/nin_heritage/">
+            <div class="thumb"><img src="../asset/image/nin_heritage-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>仁和寺の世界遺産としての価値｜国宝の金堂や御殿、御室桜など登録された理由と見学のポイント</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/culture/kinukake_road/">
+            <div class="thumb"><img src="../asset/image/kinukake_road-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺・龍安寺・仁和寺を巡る「きぬかけの路」ガイド｜京都駅からのアクセス、所要時間、ランチやお土産</h3>
+            <time datetime="2026-11-02">2026.11.02</time>
+          </a>
+          <a href="/column/culture/nin_time/">
+            <div class="thumb"><img src="../asset/image/nin_time-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>仁和寺の所要時間の目安｜御殿・金堂・霊宝館など見学範囲別の時間と効率的な回り方</h3>
+            <time datetime="2026-11-02">2026.11.02</time>
+          </a>
+          <a href="/column/culture/ryo_stone/">
+            <div class="thumb"><img src="../asset/image/ryo_stone-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>龍安寺の石庭とは？15個の石の意味と謎、作者、鑑賞のポイントを解説</h3>
+            <time datetime="2026-10-31">2026.10.31</time>
+          </a>
+          <a href="/column/culture/kin_look/">
+            <div class="thumb"><img src="../asset/image/kin_look-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>金閣寺の見どころ10選｜舎利殿の特徴や庭園、順路、所要時間を解説</h3>
+            <time datetime="2026-10-31">2026.10.31</time>
+          </a>
+          <a href="/column/culture/ryo_look/">
+            <div class="thumb"><img src="../asset/image/ryo_look-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>龍安寺の見どころを解説｜石庭だけじゃない鏡容池やつくばい、季節の楽しみ方</h3>
+            <time datetime="2026-10-31">2026.10.31</time>
+          </a>
+          <a href="/column/culture/nin_garden/">
+            <div class="thumb"><img src="../asset/image/nin_garden-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>仁和寺の庭園の見どころは？北庭と南庭の違いや御室桜、拝観情報を解説</h3>
+            <time datetime="2026-10-31">2026.10.31</time>
+          </a>
+          <a href="/column/culture/myo_look/">
+            <div class="thumb"><img src="../asset/image/myo_look-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>妙心寺の見どころを解説｜法堂の雲龍図や国宝の梵鐘、塔頭の庭園と拝観情報</h3>
+            <time datetime="2026-10-31">2026.10.31</time>
+          </a>
+          <a href="/column/culture/karesan-how/">
+            <div class="thumb"><img src="../asset/image/karesan-how-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>枯山水の作り方｜自宅の坪庭でできるDIY手順と道具、砂紋の描き方を初心者向けに解説</h3>
+            <time datetime="2026-10-28">2026.10.28</time>
+          </a>
+        </div>
+      </section>
+
+      <section class="cat-sec" id="hobby">
+        <div class="cat-head"><h2>趣味</h2><p class="en">Hobby</p></div>
+        <div class="col-grid">
+          <a href="/column/hobby/hanami_cruise/">
+            <div class="thumb"><img src="../asset/image/hanami_cruise-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>お花見クルーズの楽しみ方｜船から桜を眺めるおすすめのエリアと、時期・予約・服装のポイント</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/hobby/neck_posture/">
+            <div class="thumb"><img src="../asset/image/neck_posture-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>「首が座ってない大人」とは？頭が前に出る姿勢になる原因と、今日からできる姿勢の整え方</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/hobby/salmon_meuniere/">
+            <div class="thumb"><img src="../asset/image/salmon_meuniere-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>鮭のムニエルをフライパンで簡単に｜皮はパリッと身はふっくら焼くコツと基本の作り方、ソースのアレンジ</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/hobby/separate_marriage/">
+            <div class="thumb"><img src="../asset/image/separate_marriage-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>別居婚は意味ない？そう言われる理由と、メリット・デメリット、うまくいく夫婦のルール</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/hobby/sixty_hope/">
+            <div class="thumb"><img src="../asset/image/sixty_hope-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>60代で「夢も希望もない」と感じたら｜そう感じる理由と、毎日に小さな楽しみを取り戻すヒント</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/hobby/barrier_subsidy/">
+            <div class="thumb"><img src="../asset/image/barrier_subsidy-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>バリアフリーリフォームの補助金とは？介護保険の住宅改修や自治体の制度、減税の仕組みと申請の流れ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/beef_wine/">
+            <div class="thumb"><img src="../asset/image/beef_wine-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>牛肉の赤ワイン煮込みの作り方｜おすすめの部位とワインの選び方、ほろほろにやわらかく仕上げるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/change_hobby/">
+            <div class="thumb"><img src="../asset/image/change_hobby-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>世界が変わる趣味10選｜いつもの景色や毎日の見え方が変わる、おすすめの趣味</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/cold_house/">
+            <div class="thumb"><img src="../asset/image/cold_house-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>古い家の寒さ対策｜窓・床・すき間風の今すぐできる対策と、断熱リフォームの考え方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/collect_hobby/">
+            <div class="thumb"><img src="../asset/image/collect_hobby-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>コレクションの趣味一覧｜集める楽しさがある趣味15選と、長く楽しむための保管・予算のコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/couple_hobby/">
+            <div class="thumb"><img src="../asset/image/couple_hobby-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>夫婦で楽しむ趣味おすすめ15選｜人生を夫婦で楽しむ方法と、ふたりに合う趣味の選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/current_craze/">
+            <div class="thumb"><img src="../asset/image/current_craze-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>「最近ハマっていること」の答え方｜面接や自己紹介で使える例文と、ハマれることの見つけ方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/digital_detox/">
+            <div class="thumb"><img src="../asset/image/digital_detox-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>デジタルデトックスのやり方｜スマホと上手に距離をとる方法と、代わりに楽しみたい趣味</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/downsize_life/">
+            <div class="thumb"><img src="../asset/image/downsize_life-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>ダウンサイジングとは？暮らしを小さくするメリットと、住まい・持ち物・お金の見直し方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/dual_life/">
+            <div class="thumb"><img src="../asset/image/dual_life-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>二拠点生活で後悔しやすいポイント｜費用・移動・管理の注意点と、失敗しないための準備</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/garden_concrete/">
+            <div class="thumb"><img src="../asset/image/garden_concrete-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>庭をコンクリートにするメリット・デメリット｜費用の目安と後悔しないための注意点、ほかの選択肢</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/garden_pruning/">
+            <div class="thumb"><img src="../asset/image/garden_pruning-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>庭木の剪定の相場はいくら？高さ別の料金目安と料金体系、費用を抑えるコツと業者の選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/good_habits/">
+            <div class="thumb"><img src="../asset/image/good_habits-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>良い習慣の一覧20選｜朝・日中・夜に取り入れたい習慣と、無理なく続けるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/grave_closing/">
+            <div class="thumb"><img src="../asset/image/grave_closing-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>実家の墓じまいの費用はいくら？内訳と相場、手続きの流れと費用を抑えるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/grave_visit/">
+            <div class="thumb"><img src="../asset/image/grave_visit-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>お墓参りの作法｜正しい手順と服装、お供えものの選び方とマナー</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/butter_chicken/">
+            <div class="thumb"><img src="../asset/image/butter_chicken-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>バターチキンカレーの作り方｜トマト缶で作る本格レシピと、カレールウで作る簡単レシピ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/couple_trip/">
+            <div class="thumb"><img src="../asset/image/couple_trip-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>夫婦旅行におすすめの国内の旅行先10選｜ふたりでゆっくり楽しめる場所と、旅を満喫するコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/hakusai_roll/">
+            <div class="thumb"><img src="../asset/image/hakusai_roll-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>白菜ロールのレシピ｜ロールキャベツを白菜で作る基本の作り方と、崩れない巻き方のコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/hijikata_last/">
+            <div class="thumb"><img src="../asset/image/hijikata_last-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>土方歳三の最後とは？箱館戦争での最期の様子と死因、辞世の句、墓所やゆかりの地</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/history_books/">
+            <div class="thumb"><img src="../asset/image/history_books-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>歴史のおすすめ本12選｜初心者でも読みやすい歴史小説・入門書・世界史の名著と選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/history_relearn/">
+            <div class="thumb"><img src="../asset/image/history_relearn-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>大人の歴史の学び直し｜日本史・世界史を楽しく学び直す方法と、おすすめの教材の選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/hobby_adult/">
+            <div class="thumb"><img src="../asset/image/hobby_adult-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>大人におすすめの趣味20選｜一人で楽しめるインドア・アウトドア・学びの趣味と選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/hobby_find/">
+            <div class="thumb"><img src="../asset/image/hobby_find-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>趣味がない・欲しい人へ｜自分に合った趣味の見つけ方と作り方、長く続けるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/hobby_immerse/">
+            <div class="thumb"><img src="../asset/image/hobby_immerse-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>没頭できる趣味が欲しい人へ｜時間を忘れて夢中になれる趣味12選と、集中できる趣味の選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/hobby_quiz/">
+            <div class="thumb"><img src="../asset/image/hobby_quiz-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>趣味の見つけ方診断｜YES・NOで答えるだけでわかる、あなたに合う趣味のタイプ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/kinusaya_salad/">
+            <div class="thumb"><img src="../asset/image/kinusaya_salad-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>絹さやのサラダレシピ｜色よくシャキッとゆでるコツと、ごまマヨ・ツナ・卵など簡単アレンジ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/koji_hamburg/">
+            <div class="thumb"><img src="../asset/image/koji_hamburg-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>塩麹ハンバーグの作り方｜ふっくらジューシーに仕上がる理由と、焦がさず焼くコツ、ソースのアレンジ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/lonely_cope/">
+            <div class="thumb"><img src="../asset/image/lonely_cope-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>寂しいときの対処法｜寂しさを感じる理由と、今すぐできる気持ちの落ち着け方、一人時間の楽しみ方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/men_hobby/">
+            <div class="thumb"><img src="../asset/image/men_hobby-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>大人の男におすすめの趣味15選｜一生楽しめるインドア・アウトドア・こだわりの趣味</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/men_holiday/">
+            <div class="thumb"><img src="../asset/image/men_holiday-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>50代男性の休日の過ごし方｜一人でも楽しめる過ごし方と、充実させるためのアイデア</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/men_trip/">
+            <div class="thumb"><img src="../asset/image/men_trip-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>50代男性の一人旅おすすめの行き先と楽しみ方｜城・鉄道・温泉・歴史などテーマ別に紹介</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/morning_walk/">
+            <div class="thumb"><img src="../asset/image/morning_walk-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>朝の散歩はいつ・何分がいい？おすすめの時間帯と歩く時間の目安、続けるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/mourning_card/">
+            <div class="thumb"><img src="../asset/image/mourning_card-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>身内に不幸があった年の年賀状はどうする？喪中はがきの範囲と出す時期、文例と寒中見舞いのマナー</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/movie_seat/">
+            <div class="thumb"><img src="../asset/image/movie_seat-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>映画館の席はどこがいい？見やすい位置とおすすめの座席、作品やスクリーン別の選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/movie_solo/">
+            <div class="thumb"><img src="../asset/image/movie_solo-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>ひとり映画の楽しみ方｜一人で映画館に行くメリットとおすすめの席、時間帯、気まずくならないコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/nabe_trend/">
+            <div class="thumb"><img src="../asset/image/nabe_trend-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>流行りの鍋10選｜近年人気の鍋の種類と特徴、家で楽しむコツとしめのアレンジ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/napolitan_secret/">
+            <div class="thumb"><img src="../asset/image/napolitan_secret-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>ナポリタンの隠し味おすすめ10選｜喫茶店風においしくなるコツと基本の作り方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/nenga_closing/">
+            <div class="thumb"><img src="../asset/image/nenga_closing-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>年賀状じまいの文例｜40代〜70代の年代別・友達向けの短い文例と、失礼にならない書き方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/niche_hobby/">
+            <div class="thumb"><img src="../asset/image/niche_hobby-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>ニッチな趣味12選｜人とかぶらない、知るほど奥深いマニアックな趣味と楽しみ方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/noise_measure/">
+            <div class="thumb"><img src="../asset/image/noise_measure-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>マンションの騒音対策｜足音や生活音を出さない工夫と、周りの音が気になるときの対処法</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/overseas_retire/">
+            <div class="thumb"><img src="../asset/image/overseas_retire-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>老後の海外移住を考えるなら｜人気の国と選び方、ビザ・お金・年金・医療の準備と注意点</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/oyster_risotto/">
+            <div class="thumb"><img src="../asset/image/oyster_risotto-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>牡蠣のリゾットの作り方｜生米から作る本格レシピと、ごはんで作る簡単レシピ、ぷっくり仕上げるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/laundry_storage/">
+            <div class="thumb"><img src="../asset/image/laundry_storage-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>洗濯物を畳まない収納のアイデア｜ハンガー収納・ボックス収納のコツと、家事がラクになる仕組みづくり</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/letter_friend/">
+            <div class="thumb"><img src="../asset/image/letter_friend-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>久しぶりの友人への手紙・連絡の例文｜書き出しから結びまで、LINEやメールで使える文例も紹介</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/lifetime_items/">
+            <div class="thumb"><img src="../asset/image/lifetime_items-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>一生使えるものとは？長く愛用できる道具の選び方と、キッチン・暮らしのおすすめアイテム</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/line_intro/">
+            <div class="thumb"><img src="../asset/image/line_intro-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>友達から紹介された人へのLINEの最初のメッセージ例文｜失礼にならない送り方とマナー</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/sotsukon_rule/">
+            <div class="thumb"><img src="../asset/image/sotsukon_rule-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>卒婚のルールの決め方｜卒婚とは何か、離婚・別居との違いと、話し合っておきたい項目</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/tomato_curry/">
+            <div class="thumb"><img src="../asset/image/tomato_curry-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>トマトジュースで作るカレーの作り方｜水の代わりに使うだけでコクと酸味がアップするコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/trip_ranking/">
+            <div class="thumb"><img src="../asset/image/trip_ranking-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>50代におすすめの国内旅行先ランキング10選｜大人旅を楽しめる場所と選び方のポイント</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/tv_disposal/">
+            <div class="thumb"><img src="../asset/image/tv_disposal-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>テレビはゴミに出せる？正しい捨て方と処分費用の目安、無料・お得に処分する方法</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/vacant_watch/">
+            <div class="thumb"><img src="../asset/image/vacant_watch-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>空き家見守りサービスとは？サービス内容と料金の目安、選び方と空き家を放置するリスク</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/watch_care/">
+            <div class="thumb"><img src="../asset/image/watch_care-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>腕時計のメンテナンス方法｜毎日のお手入れとオーバーホールの目安、長持ちさせるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/wine_leftover/">
+            <div class="thumb"><img src="../asset/image/wine_leftover-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>赤ワインを消費するレシピ10選｜飲み残しや余ったワインをおいしく使い切る料理と保存方法</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/women_hobby/">
+            <div class="thumb"><img src="../asset/image/women_hobby-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>趣味がない女性におすすめの趣味15選｜一人で気軽に始められるものから、暮らしが楽しくなるものまで</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/women_trip/">
+            <div class="thumb"><img src="../asset/image/women_trip-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>50代女性の一人旅におすすめの国内の旅行先10選｜安心して楽しめる選び方と旅を満喫するコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/young_hobby/">
+            <div class="thumb"><img src="../asset/image/young_hobby-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>20代におすすめの趣味15選｜お金をかけずに始められる趣味から、将来に役立つ趣味まで</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/pillow_sleep/">
+            <div class="thumb"><img src="../asset/image/pillow_sleep-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>枕で睡眠の質は変わる？自分に合う枕の高さ・素材の選び方と、寝心地をよくするコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/qol_appliance/">
+            <div class="thumb"><img src="../asset/image/qol_appliance-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>QOLが上がる家電10選｜家事がラクになり、暮らしの満足度が上がるおすすめ家電と選び方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/residence_country/">
+            <div class="thumb"><img src="../asset/image/residence_country-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>永住権が取りやすい国とは？日本人が検討しやすい国の特徴と、永住権取得の前に知っておきたいこと</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/retire_life/">
+            <div class="thumb"><img src="../asset/image/retire_life-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>定年後の過ごし方｜充実した毎日を送るためのアイデアと、生活リズム・お金・つながりのポイント</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/retire_speech/">
+            <div class="thumb"><img src="../asset/image/retire_speech-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>定年退職の挨拶の例文（女性向け）｜職場でのスピーチ・メール・手紙の書き方とマナー</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/rich_life/">
+            <div class="thumb"><img src="../asset/image/rich_life-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>豊かな暮らしとは？人生を豊かにする考え方と、今日からできる10の習慣</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/senior_couple/">
+            <div class="thumb"><img src="../asset/image/senior_couple-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>シニア夫婦が気ままに暮らすコツ｜高齢者夫婦の生活費の目安と、心地よい距離感・毎日の楽しみ方</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/senior_rental/">
+            <div class="thumb"><img src="../asset/image/senior_rental-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>高齢者が賃貸を借りられない理由と対策｜入居審査で断られやすいポイントと、借りやすくする方法</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/shiokara_snack/">
+            <div class="thumb"><img src="../asset/image/shiokara_snack-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>いかの塩辛のアレンジおつまみ10選｜じゃがバターやパスタ、チーズ焼きなど簡単レシピ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/short_message/">
+            <div class="thumb"><img src="../asset/image/short_message-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>友達への一言メッセージ例文｜誕生日・お礼・応援・お祝いなど場面別に使える短い文例</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/small_house/">
+            <div class="thumb"><img src="../asset/image/small_house-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>老後の小さな家の間取り｜15坪の平屋で暮らしやすい間取りの例と、快適に暮らすための工夫</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+          <a href="/column/hobby/solo_holiday/">
+            <div class="thumb"><img src="../asset/image/solo_holiday-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>50代女性の一人で過ごす休日の過ごし方｜家でも外でも楽しめるアイデアと充実させるコツ</h3>
+            <time datetime="2026-11-04">2026.11.04</time>
+          </a>
+        </div>
+      </section>
+
+      <section class="cat-sec" id="mindfulness">
+        <div class="cat-head"><h2>マインドフルネス</h2><p class="en">Mindfulness</p></div>
+        <div class="col-grid">
+          <a href="/column/heal/belly_massage/">
+            <div class="thumb"><img src="../asset/image/belly_massage-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>便秘解消に効く腸マッサージのやり方｜お腹のツボ・腸もみ・体操で簡単ケア</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/darui_sleepy/">
+            <div class="thumb"><img src="../asset/image/darui_sleepy-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>「だるい」とは？体がだるい症状の意味・倦怠感の原因と対処法</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/eye_fatigue/">
+            <div class="thumb"><img src="../asset/image/eye_fatigue-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>目の疲れを取る方法｜簡単にできる即効ケアと疲れ目の予防法</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/fatigue_recovery/">
+            <div class="thumb"><img src="../asset/image/fatigue_recovery-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>疲労回復の方法まとめ｜食べ物・睡眠・ルーティンで疲れを効果的に取る</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/female_brain/">
+            <div class="thumb"><img src="../asset/image/female_brain-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>男性の脳と女性の脳の違いとは？科学的根拠と性差より大きい個人差</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/gray_hair/">
+            <div class="thumb"><img src="../asset/image/gray_hair-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>白髪が増える原因とは？急に増えたときに見直したい習慣と対策</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/hair_loss/">
+            <div class="thumb"><img src="../asset/image/hair_loss-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>髪の毛が抜ける原因と対策｜急に抜ける・女性の抜け毛は病気？正常な量の目安</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/heatstroke_yawn/">
+            <div class="thumb"><img src="../asset/image/heatstroke_yawn-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>熱中症であくびが出るのは危険なサイン？初期症状と対処法</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/home_workout/">
+            <div class="thumb"><img src="../asset/image/home_workout-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>家で出来る運動｜ダイエット・健康に効く静かな自宅トレーニング</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/kampo_howto/">
+            <div class="thumb"><img src="../asset/image/kampo_howto-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>漢方の飲み方ガイド｜飲むタイミング（食前・食間）とお湯に溶かすコツ</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/meditation_howto/">
+            <div class="thumb"><img src="../asset/image/meditation_howto-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>瞑想とは？効果とやり方・マインドフルネスとの違いを初心者向けに解説</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/metabolism_quiz/">
+            <div class="thumb"><img src="../asset/image/metabolism_quiz-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>食べても太らない体質診断｜あなたの体質タイプと太りにくい体のつくり方</h3>
+            <time datetime="2026-11-07">2026.11.07</time>
+          </a>
+          <a href="/column/heal/slim_meal/">
+            <div class="thumb"><img src="../asset/image/slim_meal-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>太らない食事のコツ｜食べる順番や栄養バランス、献立の例と、外食・間食の選び方</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/heal/swelling_care/">
+            <div class="thumb"><img src="../asset/image/swelling_care-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>むくみをとる方法｜足や顔のむくみの原因と、今すぐできるマッサージ・ストレッチ・食事のコツ</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/heal/nausea_relief/">
+            <div class="thumb"><img src="../asset/image/nausea_relief-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>吐き気を止めたい・吐きそうなときの対処法｜楽な姿勢や呼吸、ツボなど今すぐできること</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/heal/neck_wrinkle/">
+            <div class="thumb"><img src="../asset/image/neck_wrinkle-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>首のしわを取る・改善するには？しわができる原因と、毎日できる保湿・姿勢・マッサージのケア</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/heal/midlife_weight/">
+            <div class="thumb"><img src="../asset/image/midlife_weight-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>中年太りの原因と解消法｜代謝が落ちる理由と、食事・運動・生活習慣の見直しポイント</h3>
+            <time datetime="2026-11-05">2026.11.05</time>
+          </a>
+          <a href="/column/heal/tired-non/">
+            <div class="thumb"><img src="../asset/image/tired-non-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>何もしたくない・全部めんどくさいのは甘え？原因と今日からできる対処法、避けたいNG行動を解説</h3>
+            <time datetime="2026-11-02">2026.11.02</time>
+          </a>
+          <a href="/column/heal/muscle_gain/">
+            <div class="thumb"><img src="../asset/image/muscle_gain-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>筋肉をつける方法とは？効率よく筋肉を増やす筋トレ・食事・休養の基本と注意点</h3>
+            <time datetime="2026-11-02">2026.11.02</time>
+          </a>
+          <a href="/column/heal/iraira/">
+            <div class="thumb"><img src="../asset/image/iraira-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>イライラが止まらないのはなぜ？原因や考えられる病気、今すぐできる対処法と受診の目安を解説</h3>
+            <time datetime="2026-10-31">2026.10.31</time>
+          </a>
+          <a href="/column/heal/tired-mind/">
+            <div class="thumb"><img src="../asset/image/tired-mind-eyecatch.webp" alt="" width="1254" height="1254" loading="lazy"></div>
+            <h3>精神的に疲れた・心が疲れたときのサインとは？原因や特徴、対処法と回復方法を解説</h3>
+            <time datetime="2026-10-28">2026.10.28</time>
+          </a>
+        </div>
+      </section>
+    </section>
+  </div>
+</main>
+
+<!-- フッター -->
+<footer>
+  <div class="inner">
+    <div class="f-top">
+      <div>
+        <a href="/" class="logo" style="display:inline-block"><b>ココロノ庭園</b></a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2026, kokoro no teien</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// カートの商品数をヘッダーのカートマークに表示（WooCommerceのカートフラグメントから取得）
+fetch('/ec/?wc-ajax=get_refreshed_fragments',{method:'POST',credentials:'same-origin'})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(d){
+    var html=d&&d.fragments&&d.fragments['b.hp-cart-count'];
+    var m=html&&/>(\d+\+?)</.exec(html);
+    var el=document.querySelector('.cart-count');
+    if(el&&m&&m[1]!=='0'){el.textContent=m[1];el.hidden=false}
+  })
+  .catch(function(){});
+</script>
+</body>
+</html>

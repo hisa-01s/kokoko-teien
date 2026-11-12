@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ファビコン -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/asset/image/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/asset/image/favicon-192.png">
+<link rel="apple-touch-icon" href="/asset/image/apple-touch-icon.png">
+
+<!-- Google タグ（GA4）※heal-place.com/ec/ と同じID -->
+<!-- ページの閲覧数のみ計測。チェックの回答内容は送信しない -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-BCLRRNL6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GT-BCLRRNL6');
+</script>
+
+<!-- Google Search Console 所有権確認 -->
+<meta name="google-site-verification" content="mt-re1tV8P2szHFN1_EK3ncqbhgSs4AkueXvEoqhahU" />
+
+<!-- ===== SEO ===== -->
+<title>疲労・ストレスセルフチェック｜働く人の疲労の蓄積を確認 | ココロノ庭園</title>
+<meta name="description" content="自覚症状と勤務の状況についての27の質問から、疲労の蓄積の度合いを確認できるセルフチェックです。厚生労働省が周知するチェックリストの配点と判定基準を参考にしています。回答は送信・保存されません。">
+<!-- 公開URLが決まったら設定 -->
+<!-- <link rel="canonical" href="https://heal-place.com/contents/stress-check/"> -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ココロノ庭園">
+<meta property="og:title" content="疲労・ストレスセルフチェック｜働く人の疲労の蓄積を確認">
+<meta property="og:description" content="自覚症状と勤務の状況についての27の質問から、疲労の蓄積の度合いを確認できるセルフチェックです。厚生労働省が周知するチェックリストの配点と判定基準を参考にしています。回答は送信・保存されません。">
+<!-- <meta property="og:url" content="https://heal-place.com/contents/stress-check/"> -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho:wght@400;700&family=Caudex:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;          /* 白 */
+    --bg-sub:#ffffff;
+    --white:#ffffff;
+    --text:#121212;
+    --text-sub:rgba(18,18,18,.75);
+    --green:#033521;       /* 深緑 */
+    --gold:#bc964c;        /* 金茶 */
+    --dark:#3a3a38;        /* 墨色 */
+    --line:rgba(18,18,18,.12);
+    --img:#c9c9c4;         /* 画像プレースホルダー */
+    --img-dark:#8f8f8a;
+    --track:#ecece8;       /* メーターの地 */
+    --serif:"BIZ UDPMincho",serif;
+    --en:"Caudex",serif;
+    --sans:"Noto Sans JP",sans-serif;
+    --w:1200px;
+    --article:780px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:120px}
+  body{background:var(--bg);color:var(--text-sub);font-family:var(--sans);font-size:15px;line-height:1.9;letter-spacing:.06em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .inner{max-width:var(--w);margin:0 auto;padding:0 40px}
+  [hidden]{display:none!important}
+
+  /* 見出し */
+  .en{display:flex;align-items:center;gap:8px;font-family:var(--en);font-size:14px;color:var(--text-sub);letter-spacing:.08em}
+  .en::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  h1,h2,h3{font-family:var(--serif);color:var(--text);font-weight:400;letter-spacing:.1em}
+
+  /* ボタン */
+  .btn{display:inline-flex;align-items:center;justify-content:space-between;width:210px;height:59px;padding:0 24px;background:var(--text);color:#fff;border:0;font-family:var(--sans);font-size:15px;letter-spacing:.06em;cursor:pointer;transition:opacity .3s}
+  .btn:hover{opacity:.8}
+  .btn svg{width:14px}
+
+  /* ===== ヘッダー（TOPと共通） ===== */
+  header.site{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--line)}
+  /* ec（WordPress）側に合わせる：Cocoonの文字詰めと字間 */
+  header.site{font-feature-settings:"palt";letter-spacing:.96px}
+  header.site .inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:20px;padding-bottom:14px}
+  .hd-icons{position:absolute;top:24px;right:40px;display:flex;gap:28px}
+  .hd-icons a{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--green);transition:opacity .3s}
+  .hd-icons a:hover{opacity:.6}
+  .hd-icons img{width:22px;height:22px}
+  /* カートの商品数バッジ（中身はページ下部のスクリプトで反映） */
+  .hd-icons a{position:relative}
+  .cart-count{position:absolute;left:13px;top:-8px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--green);color:#fff;font-family:var(--sans);font-size:11px;font-weight:700;font-style:normal;line-height:18px;letter-spacing:0;text-align:center;box-shadow:0 0 0 2px var(--white)}
+  .cart-count[hidden]{display:none}
+  .logo{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--green);line-height:1;text-align:center}
+  .logo b{display:block;font-size:30px;font-weight:700;letter-spacing:.06em}
+  /* ヘッダー：タイトルの左にロゴマーク */
+  header.site .logo{display:flex;align-items:center;gap:10px}
+  header.site .logo img{width:46px;height:46px}
+  nav.gnav ul{display:flex;justify-content:center;gap:40px;list-style:none;font-size:15px}
+  nav.gnav a{padding-bottom:3px;border-bottom:1px solid transparent}
+  nav.gnav a:hover,nav.gnav a.cur{border-color:var(--text);color:var(--text)}
+
+  /* ===== パンくず ===== */
+  .breadcrumb{font-size:12px;padding:18px 0}
+  .breadcrumb ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+  .breadcrumb li+li::before{content:"›";margin-right:6px;color:var(--gold)}
+  .breadcrumb a:hover{text-decoration:underline}
+
+  /* ===== ページヘッダー ===== */
+  .article-head{max-width:var(--article);margin:0 auto;padding:40px 0 0}
+  .article-head h1{font-size:30px;line-height:1.6;margin:14px 0 18px}
+  .article{max-width:var(--article);margin:0 auto;padding:32px 0 110px}
+  .lead{font-size:16px;line-height:2.1;margin-bottom:24px}
+  .facts{display:flex;flex-wrap:wrap;gap:6px 28px;list-style:none;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}
+  .facts li{position:relative;padding-left:16px}
+  .facts li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+  /* ===== 質問 ===== */
+  .group{margin-top:64px}
+  .group-ttl{display:flex;align-items:baseline;gap:14px;padding-bottom:14px;margin-bottom:8px;border-bottom:1px solid var(--line);position:relative}
+  .group-ttl::after{content:"";position:absolute;left:0;bottom:-1px;width:80px;height:2px;background:var(--gold)}
+  .group-ttl h2{font-size:22px;line-height:1.6}
+  .group-ttl .en{font-size:13px}
+  .q{border:0;padding:22px 0;border-bottom:1px dashed var(--line)}
+  .q.missing{border-left:3px solid var(--gold);padding-left:14px}
+  .q legend{float:left;width:100%;margin-bottom:12px;color:var(--text);font-size:16px;line-height:1.7}
+  .q legend span{font-family:var(--en);color:var(--gold);margin-right:10px}
+  .q small{display:block;clear:both;margin:-6px 0 12px;font-size:13px}
+  .opts{clear:both;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .opts label{position:relative;display:block;cursor:pointer}
+  .opts input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+  .opts span{display:flex;align-items:center;justify-content:center;min-height:46px;padding:4px;border:1px solid var(--line);font-size:14px;letter-spacing:.03em;text-align:center;line-height:1.4;transition:background .2s,color .2s,border-color .2s}
+  .opts label:hover span{border-color:var(--green)}
+  .opts input:checked+span{background:var(--green);border-color:var(--green);color:#fff}
+  .opts input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* 回答の進み具合（画面下に固定） */
+  .progress{position:sticky;bottom:0;z-index:20;display:flex;align-items:center;gap:16px;margin-top:40px;padding:12px 0;background:var(--white);border-top:1px solid var(--line);font-size:13px}
+  .progress-bar{flex:1;height:6px;border-radius:3px;background:var(--track);overflow:hidden}
+  .progress-bar i{display:block;height:100%;width:0;border-radius:3px;background:var(--green);transition:width .25s}
+  .submit{margin-top:32px;text-align:center}
+  .form-error{margin-bottom:14px;color:var(--text);font-size:14px}
+
+  /* ===== 結果 ===== */
+  .result h2:focus{outline:none}
+  .result-ttl{font-size:26px;line-height:1.6;margin:10px 0 16px}
+  .result section{margin-top:56px}
+  .result section h3{font-size:19px;line-height:1.6;margin-bottom:20px;padding:4px 0 4px 16px;border-left:3px solid var(--green)}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+  .tile{padding:20px 22px;border:1px solid var(--line);border-top:3px solid var(--green)}
+  .tile p{font-size:14px}
+  .tile .num{display:flex;align-items:baseline;gap:6px;margin:2px 0 0;color:var(--text);font-size:14px}
+  .tile .num b{font-family:var(--en);font-size:42px;font-weight:400;line-height:1.2;letter-spacing:.02em}
+  .note{margin-top:10px;font-size:13px}
+  /* 判定表：自分の回答が当てはまるマスを色で示す */
+  .matrix{width:100%;border-collapse:collapse;font-size:14px;text-align:center}
+  .matrix th,.matrix td{border:1px solid var(--line);padding:10px 6px}
+  .matrix th{font-weight:500;color:var(--text);background:#f6f6f3}
+  .matrix td.here{background:var(--green);border-color:var(--green);color:#fff;font-weight:700}
+  .care-items{margin-bottom:20px}
+  .care-items li span{display:block;font-size:13px}
+  .check{list-style:none}
+  .check li{position:relative;padding-left:20px}
+  .check li+li{margin-top:6px}
+  .check li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .more{display:inline-block;margin-top:12px;font-size:14px;color:var(--text);border-bottom:1px solid var(--gold)}
+  .more:hover{opacity:.7}
+
+  .notice{border:1px solid var(--gold);padding:24px 28px;margin-top:40px;font-size:14px}
+  .notice strong{display:block;font-family:var(--serif);color:var(--text);font-size:16px;margin-bottom:6px;font-weight:700}
+  .notice p+p{margin-top:.8em}
+  .notice a{border-bottom:1px solid var(--gold)}
+  .support{margin-top:24px;border-top:3px solid var(--green);padding:26px 28px;background:#f6f6f3}
+  .support strong{display:block;font-family:var(--serif);color:var(--text);font-size:18px;margin-bottom:8px;font-weight:700}
+  .support ul{list-style:none;margin:14px 0}
+  .support li{padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+  .support li b{display:block;color:var(--text);font-weight:500}
+  .support li a{font-family:var(--en);font-size:21px;color:var(--green);letter-spacing:.04em}
+  .support .small{font-size:13px}
+  .support .small a{border-bottom:1px solid var(--gold)}
+  .again{margin-top:48px;text-align:center}
+
+  /* ===== フッター（TOPと共通） ===== */
+  footer{padding:80px 0 30px;background:var(--green);color:#fff;font-size:14px}
+  footer .logo{color:#fff}
+  .f-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.25)}
+  .f-top h4{font-family:var(--en);font-size:16px;color:#fff;font-weight:400;margin-bottom:14px}
+  .f-top ul{list-style:none}
+  .f-top li{margin-bottom:6px}
+  .f-top a:hover{text-decoration:underline}
+  .f-bottom{display:flex;justify-content:flex-end;align-items:center;padding-top:28px;font-size:12px}
+
+  /* ===== レスポンシブ ===== */
+  @media (max-width:900px){
+    html{scroll-padding-top:90px}
+    .inner{padding:0 16px}
+    header.site .inner{gap:10px;padding-top:14px;padding-bottom:10px}
+    .hd-icons{top:16px;right:16px;gap:12px}
+    header.site .logo{align-self:flex-start;gap:8px}
+    header.site .logo img{width:36px;height:36px}
+    .hd-icons span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    nav.gnav ul{flex-wrap:wrap;gap:4px 20px;font-size:13px;letter-spacing:.03em}
+    nav.gnav a{white-space:nowrap}
+    .article-head{padding-top:16px}
+    .article-head h1{font-size:22px}
+    .article{padding-bottom:72px}
+    .group{margin-top:48px}
+    .group-ttl h2{font-size:19px}
+    .opts{gap:6px}
+    .opts span{font-size:13px;letter-spacing:0}
+    .result-ttl{font-size:21px}
+    .tiles{grid-template-columns:1fr}
+    .support,.notice{padding:20px}
+    .f-top{grid-template-columns:1fr}
+    .f-bottom{flex-direction:column;gap:14px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="site">
+  <div class="inner">
+    <a href="/" class="logo"><img src="../../asset/image/logo-mark.webp" alt="" width="46" height="46"><b>ココロノ庭園</b></a>
+    <nav class="gnav">
+      <ul>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/column/">コラム</a></li>
+      </ul>
+    </nav>
+    <div class="hd-icons">
+      <a href="https://heal-place.com/ec/my-account/"><img src="../../asset/image/account.svg" alt="" width="22" height="22"><span>マイアカウント</span></a>
+      <a href="https://heal-place.com/ec/cart/"><img src="../../asset/image/cart.svg" alt="" width="22" height="22"><b class="cart-count" hidden></b><span>カート</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="inner">
+    <!-- パンくず -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="/">ホーム</a></li>
+        <li>疲労・ストレスセルフチェック</li>
+      </ol>
+    </nav>
+
+    <!-- ページヘッダー -->
+    <div class="article-head">
+      <p class="en">Self Check</p>
+      <h1>疲労・ストレスセルフチェック</h1>
+    </div>
+
+    <div class="article">
+      <!-- 質問 -->
+      <div id="check">
+        <p class="lead">忙しい毎日のなかでは、自分の疲れに気づきにくいものです。最近1か月をふり返って、いちばん近いものを選んでください。心と体の症状、働き方の両面から、疲労がどのくらいたまっているかを確認します。</p>
+        <ul class="facts">
+          <li>働いている方向け</li>
+          <li>全28問・約5分</li>
+          <li>回答は送信も保存もされません</li>
+        </ul>
+        <p class="note">判定は、厚生労働省が周知している「労働者の疲労蓄積度自己診断チェックリスト（2023年改正版）」の配点と基準を参考にしています。質問はわかりやすい言葉に言い換えています（詳しくは結果ページの「このチェックについて」をご覧ください）。</p>
+        <noscript><p class="note">このチェックを利用するには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+        <form id="form" novalidate>
+          <div id="groups"></div>
+          <div class="progress">
+            <span id="count" aria-live="off">0 / 28</span>
+            <div class="progress-bar" aria-hidden="true"><i id="bar"></i></div>
+          </div>
+          <div class="submit">
+            <p class="form-error" id="error" role="alert" hidden></p>
+            <button type="submit" class="btn">結果を見る <svg viewBox="0 0 14 9" fill="none"><path d="M0.5 4.5H13.3M8.45 8.5L13.5 4.5L8.45 0.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 結果（回答後に中身を反映） -->
+      <div class="result" id="result" hidden>
+        <p class="en">Your Result</p>
+        <h2 class="result-ttl" id="r-ttl" tabindex="-1"></h2>
+        <p id="r-txt"></p>
+
+        <div class="support" id="r-support" hidden>
+          <strong>つらい気持ちを、一人で抱えないでください</strong>
+          <p>「消えてしまいたい」と感じるほどつらいときは、その気持ちを誰かに話してみてください。身近な人に話しにくいときは、匿名で相談できる窓口があります。</p>
+          <ul>
+            <li><b>#いのちSOS（24時間・無料）</b><a href="tel:0120061338">0120-061-338</a></li>
+            <li><b>よりそいホットライン（24時間・無料）</b><a href="tel:0120279338">0120-279-338</a></li>
+            <li><b>こころの健康相談統一ダイヤル（通話料がかかります）</b><a href="tel:0570064556">0570-064-556</a></li>
+          </ul>
+          <p class="small">いますぐ命の危険を感じるときは、119番に連絡してください。ほかの窓口は<a href="https://www.mhlw.go.jp/mamorouyokokoro/soudan/tel/" target="_blank" rel="noopener">厚生労働省「まもろうよ こころ」</a>で確認できます。</p>
+        </div>
+
+        <div class="tiles">
+          <div class="tile">
+            <p>疲労蓄積度</p>
+            <p class="num"><b id="r-score"></b>/ 7</p>
+          </div>
+          <div class="tile">
+            <p>心と体の症状</p>
+            <p class="num"><b id="r-sym"></b><span id="r-sym-pt"></span></p>
+          </div>
+          <div class="tile">
+            <p>勤務の状況</p>
+            <p class="num"><b id="r-work"></b><span id="r-work-pt"></span></p>
+          </div>
+        </div>
+
+        <section>
+          <h3>判定の見方</h3>
+          <table class="matrix">
+            <caption class="note" style="caption-side:bottom;text-align:left">緑のマスがあなたの結果です。縦が心と体の症状、横が勤務の状況で、数字が疲労蓄積度を表します（0〜1：低い、2〜3：やや高い、4〜5：高い、6〜7：非常に高い）。</caption>
+            <thead><tr><th scope="col">症状＼勤務</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead>
+            <tbody id="r-matrix"></tbody>
+          </table>
+        </section>
+
+        <section>
+          <h3>疲れをためないために</h3>
+          <div id="r-items" hidden>
+            <p>次の働き方は、回答から負担があるとわかった項目です。自分で変えられるものは見直し、自分だけでは変えられないものは、上司や産業医などに相談してみましょう。</p>
+            <ul class="check care-items" id="r-item-list"></ul>
+          </div>
+          <ul class="check" id="r-care"></ul>
+        </section>
+
+        <section>
+          <h3>あわせて読みたいコラム</h3>
+          <ul class="check">
+            <li><a class="more" style="margin:0" href="/column/heal/tired-mind/">心が疲れたときのサインと回復方法</a></li>
+            <li><a class="more" style="margin:0" href="/column/heal/tired-non/">何もしたくないときの原因と対処法</a></li>
+            <li><a class="more" style="margin:0" href="/column/heal/iraira/">イライラが止まらないときの対処法</a></li>
+          </ul>
+        </section>
+
+        <section id="r-kit" hidden>
+          <h3>手を動かして、静かな時間を</h3>
+          <p>砂に模様を描くように、ゆっくり手を動かす時間は、頭のなかを休めるひとときになります。</p>
+          <a href="/column/culture/karesan-how/" class="more">枯山水の作り方を見る</a>
+        </section>
+
+        <div class="notice" id="r-doctor" hidden>
+          <strong>医療機関への相談も考えてみましょう</strong>
+          つらい状態が2週間以上続いている、仕事や家事に支障が出ている、眠れない日が続くといったときは、心療内科や精神科、かかりつけ医に相談してください。
+        </div>
+
+        <div class="notice">
+          <strong>このチェックについて</strong>
+          <p>点数のつけ方と判定基準は、中央労働災害防止協会が作成し、厚生労働省が周知している「労働者の疲労蓄積度自己診断チェックリスト（2023年改正版）」を参考にしています。</p>
+          <p>このページは、ココロノ庭園が質問を言い換えてWeb用に編集したものです。厚生労働省や中央労働災害防止協会が作成・提供するものではありません。言い換えの影響で、公式のチェックとは結果が異なることがあります。「消えてしまいたい」についての質問は当サイトで加えたもので、点数には含みません。</p>
+          <p>正確に確認したいときは、<a href="https://kokoro.mhlw.go.jp/fatigue-check/worker.html" target="_blank" rel="noopener">公式の「働く人の疲労蓄積度セルフチェック2023」</a>をご利用ください。出典：<a href="https://www.mhlw.go.jp/stf/newpage_70718.html" target="_blank" rel="noopener">厚生労働省ホームページ「労働者の方へ」</a></p>
+        </div>
+
+        <div class="notice">
+          <strong>ご注意</strong>
+          このチェックは疲労の蓄積をふり返るための目安で、病気の診断や治療に代わるものではありません。糖尿病や高血圧症などの病気がある方は、正しく判定できないことがあります。気になる症状があるときは医療機関にご相談ください。
+        </div>
+
+        <p class="again"><button type="button" class="btn" id="again">もう一度チェックする <svg viewBox="0 0 14 9" fill="none"><path d="M0.5 4.5H13.3M8.45 8.5L13.5 4.5L8.45 0.5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg></button></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- フッター -->
+<footer>
+  <div class="inner">
+    <div class="f-top">
+      <div>
+        <a href="/" class="logo" style="display:inline-block"><b>ココロノ庭園</b></a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p>© 2026, kokoro no teien</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// カートの商品数をヘッダーのカートマークに表示（WooCommerceのカートフラグメントから取得）
+fetch('/ec/?wc-ajax=get_refreshed_fragments',{method:'POST',credentials:'same-origin'})
+  .then(function(r){return r.ok?r.json():null})
+  .then(function(d){
+    var html=d&&d.fragments&&d.fragments['b.hp-cart-count'];
+    var m=html&&/>(\d+\+?)</.exec(html);
+    var el=document.querySelector('.cart-count');
+    if(el&&m&&m[1]!=='0'){el.textContent=m[1];el.hidden=false}
+  })
+  .catch(function(){});
+</script>
+<script>
+// セルフチェック：回答はこのページ内だけで計算し、送信も保存もしない
+(function(){
+  // 選択肢の配点は順に 0・1・3（2択の質問は 0・1）
+  var POINTS=[0,1,3];
+  var FREQ=['ほとんどない','時々ある','よくある'];
+  var AMOUNT=['少ない','多い','非常に多い'];
+  var BURDEN=['小さい','大きい','非常に大きい'];
+  var ENOUGH=['十分','やや足りない','足りない'];
+
+  // 質問。配点と判定基準は「労働者の疲労蓄積度自己診断チェックリスト（2023年改正版）」に合わせ、文言は言い換えている
+  // safety は当サイト独自の質問で採点せず、相談窓口の表示だけに使う
+  var GROUPS=[
+    {id:'sym',name:'最近1か月の心と体の症状',en:'Symptoms',items:[
+      {t:'いら立ちを感じる',o:FREQ},
+      {t:'不安な気持ちになる',o:FREQ},
+      {t:'そわそわして気持ちが定まらない',o:FREQ},
+      {t:'気分がふさぐ',o:FREQ},
+      {t:'眠りに満足できない',o:FREQ},
+      {t:'体調がすぐれない',o:FREQ},
+      {t:'物事に気持ちを向け続けられない',o:FREQ},
+      {t:'うっかりミスが目立つ',o:FREQ},
+      {t:'仕事の最中に、ひどい眠気が来る',o:FREQ},
+      {t:'意欲がわかない',o:FREQ},
+      {t:'体に力が入らないほど疲れ切っている',n:'運動のあとの疲れは除きます。',o:FREQ},
+      {t:'目覚めたときに、重い疲れが残っている',o:FREQ},
+      {t:'前より疲れを感じやすくなった',o:FREQ},
+      {t:'食べたい気持ちがわかない',o:FREQ}
+    ]},
+    {id:'work',name:'最近1か月の勤務の状況',en:'Work',items:[
+      {t:'残業や休日出勤も含めた、1か月の働いた時間',o:['ちょうどよい','多い','非常に多い']},
+      {t:'予定変更や急な仕事など、勤務の不規則さ',o:AMOUNT.slice(0,2)},
+      {t:'出張の負担（回数、拘束時間、時差など）',o:['ない・小さい','大きい']},
+      {t:'夜10時〜朝5時にかかる勤務の負担',n:'回数や時間から総合的に考えてください。',o:['ない・小さい','大きい','非常に大きい']},
+      {t:'休憩や仮眠の時間と場所',o:['適切','適切でない']},
+      {t:'仕事で体にかかる負担',n:'力仕事や、暑さ・寒さのなかでの作業などです。',o:BURDEN},
+      {t:'仕事で心にかかる負担',o:BURDEN},
+      {t:'職場やお客様との人間関係の負担',o:BURDEN},
+      {t:'勤務時間内に終わらない仕事',o:AMOUNT},
+      {t:'自分のペースで進められない仕事',o:AMOUNT},
+      {t:'仕事が終わったあとも、仕事のことが頭から離れない',o:FREQ},
+      {t:'仕事がある日の睡眠時間',o:ENOUGH},
+      {t:'仕事が終わってから次の仕事が始まるまでの休息時間',o:ENOUGH}
+    ]},
+    {id:'safety',name:'さいごに',en:'Last',items:[
+      {t:'消えてしまいたい、いなくなりたいと思う',n:'この質問は判定の点数には含みません。',o:FREQ}
+    ]}
+  ];
+
+  // 判定基準（点数の上限）と疲労蓄積度の点数表。行：症状Ⅰ〜Ⅳ、列：勤務A〜D
+  var SYM_LIMITS=[2,7,14];
+  var WORK_LIMITS=[0,5,11];
+  var SYM_NAMES=['Ⅰ','Ⅱ','Ⅲ','Ⅳ'];
+  var WORK_NAMES=['A','B','C','D'];
+  var TABLE=[[0,0,2,4],[0,1,3,5],[0,2,4,6],[1,3,5,7]];
+
+  var STATES=[
+    {ttl:'疲労の蓄積は「低い」と考えられます',txt:'今のところ、疲れが大きくたまっている様子は見られません。今の睡眠や休養のとり方を保っていきましょう。'},
+    {ttl:'疲労の蓄積は「やや高い」と考えられます',txt:'疲れがたまりはじめている可能性があります。軽いうちに、働き方や休み方を見直してみましょう。'},
+    {ttl:'疲労の蓄積は「高い」と考えられます',txt:'疲れがたまっている可能性があります。負担を減らし、睡眠と休養をしっかりとることを優先しましょう。'},
+    {ttl:'疲労の蓄積は「非常に高い」と考えられます',txt:'疲れがかなりたまっている可能性があります。一人で抱えず、上司や産業医、医療機関への相談も考えてみましょう。'}
+  ];
+
+  var form=document.getElementById('form');
+  var check=document.getElementById('check');
+  var result=document.getElementById('result');
+  var error=document.getElementById('error');
+  var total=0;
+
+  function $(id){return document.getElementById(id)}
+
+  // 質問を組み立てる
+  var html='';
+  GROUPS.forEach(function(g){
+    html+='<div class="group"><div class="group-ttl"><h2>'+g.name+'</h2><p class="en">'+g.en+'</p></div>';
+    g.items.forEach(function(item,i){
+      total++;
+      html+='<fieldset class="q" data-group="'+g.id+'" data-text="'+item.t+'"><legend><span>'+('0'+total).slice(-2)+'</span>'+item.t+'</legend>';
+      if(item.n)html+='<small>'+item.n+'</small>';
+      html+='<div class="opts">';
+      item.o.forEach(function(label,v){
+        html+='<label><input type="radio" name="'+g.id+i+'" value="'+POINTS[v]+'"><span>'+label+'</span></label>';
+      });
+      html+='</div></fieldset>';
+    });
+    html+='</div>';
+  });
+  $('groups').innerHTML=html;
+
+  var questions=[].slice.call(form.querySelectorAll('.q'));
+
+  function answer(q){
+    var c=q.querySelector('input:checked');
+    return c?Number(c.value):null;
+  }
+
+  function updateProgress(){
+    var done=questions.filter(function(q){return answer(q)!==null}).length;
+    $('count').textContent=done+' / '+total;
+    $('bar').style.width=done/total*100+'%';
+    if(done===total)error.hidden=true;
+  }
+
+  function sum(id){
+    return questions.reduce(function(t,q){
+      return q.dataset.group===id?t+answer(q):t;
+    },0);
+  }
+
+  // 合計点を評価（0始まりの段階）に変換する
+  function grade(pt,limits){
+    for(var i=0;i<limits.length;i++){
+      if(pt<=limits[i])return i;
+    }
+    return limits.length;
+  }
+
+  function showResult(){
+    var symPt=sum('sym'),workPt=sum('work');
+    var row=grade(symPt,SYM_LIMITS),col=grade(workPt,WORK_LIMITS);
+    var point=TABLE[row][col];
+    var lv=point<2?0:point<4?1:point<6?2:3;
+    var flagged=answer(questions[questions.length-1])>0;
+
+    $('r-ttl').textContent=STATES[lv].ttl;
+    $('r-txt').textContent=STATES[lv].txt;
+    $('r-score').textContent=point;
+    $('r-sym').textContent=SYM_NAMES[row];
+    $('r-sym-pt').textContent=symPt+'点';
+    $('r-work').textContent=WORK_NAMES[col];
+    $('r-work-pt').textContent=workPt+'点';
+
+    $('r-matrix').innerHTML=TABLE.map(function(cells,r){
+      return '<tr><th scope="row">'+SYM_NAMES[r]+'</th>'+cells.map(function(n,c){
+        return '<td'+(r===row&&c===col?' class="here"':'')+'>'+n+'</td>';
+      }).join('')+'</tr>';
+    }).join('');
+
+    // 疲労蓄積度が2点以上のときは、点数がついた勤務の項目を見直しの対象として示す
+    var items=questions.filter(function(q){return q.dataset.group==='work'&&answer(q)>0});
+    $('r-items').hidden=point<2||!items.length;
+    $('r-item-list').innerHTML=items.map(function(q){
+      return '<li>'+q.dataset.text+'<span>回答：'+q.querySelector('input:checked').nextElementSibling.textContent+'</span></li>';
+    }).join('');
+    var care=['仕事以外の生活が原因で症状が出ていることもあるため、睡眠や休養のとり方も見直す','疲れをためないよう、負担を減らしながら、睡眠と休養をしっかりとる'];
+    if(point>=2)care.push('残業と休日出勤が月45時間を超えているときは、働く時間を減らすことを考える');
+    $('r-care').innerHTML='<li>'+care.join('</li><li>')+'</li>';
+
+    $('r-support').hidden=!flagged;
+    $('r-doctor').hidden=!flagged&&point<4;
+    $('r-kit').hidden=flagged||point>=4;
+
+    check.hidden=true;
+    result.hidden=false;
+    window.scrollTo(0,0);
+    $('r-ttl').focus({preventScroll:true});
+  }
+
+  form.addEventListener('change',function(e){
+    e.target.closest('.q').classList.remove('missing');
+    updateProgress();
+  });
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var missing=questions.filter(function(q){return answer(q)===null});
+    questions.forEach(function(q){q.classList.toggle('missing',missing.indexOf(q)>=0)});
+    if(missing.length){
+      error.textContent='未回答の質問が'+missing.length+'問あります。印のついた質問に答えてください。';
+      error.hidden=false;
+      missing[0].scrollIntoView({block:'center'});
+      missing[0].querySelector('input').focus({preventScroll:true});
+      return;
+    }
+    showResult();
+  });
+
+  $('again').addEventListener('click',function(){
+    form.reset();
+    updateProgress();
+    result.hidden=true;
+    check.hidden=false;
+    window.scrollTo(0,0);
+  });
+})();
+</script>
+</body>
+</html>

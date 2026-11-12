@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+/*!
+Theme Name: Cocoon Child
+Description: Cocoon専用の子テーマ
+Theme URI: https://wp-cocoon.com/
+Author: わいひら
+Author URI: https://nelog.jp/
+Template:   cocoon-master
+Version:    1.1.3
+*/
+
+/************************************
+** 子テーマ用のスタイルを書く
+************************************/
+/*必要ならばここにコードを書く*/
+
+/* ===== ヘッダー（TOPページ /index.html と共通） ===== */
+.hp-header-container{position:sticky;top:var(--wp-admin--admin-bar--height,0px);z-index:50;background:#fff;border-bottom:1px solid rgba(18,18,18,.12)}
+/* スキン（grayish）が下層ページのヘッダーを半透明グレーにするので白で上書き。
+   幅1023px以下で固定表示（sticky）を解除するので、スマホでも固定に戻す */
+.body #header-container.hp-header-container{background-color:#fff;position:sticky}
+.hp-header-in{position:relative;max-width:1200px;margin:0 auto;padding:20px 40px 14px;display:flex;flex-direction:column;align-items:center;gap:14px;box-sizing:border-box;font-family:"Noto Sans JP",sans-serif;line-height:1.9;letter-spacing:.06em}
+.hp-header a{color:rgba(18,18,18,.75);text-decoration:none}
+.hp-logo{font-family:"Zen Kaku Gothic New",sans-serif;line-height:1;text-align:center}
+.hp-header .hp-logo{color:#033521}
+.hp-logo b{display:block;font-size:30px;font-weight:700;letter-spacing:.06em}
+/* タイトルの左にロゴマーク */
+.hp-header .hp-logo{display:flex;align-items:center;gap:10px}
+.hp-logo img{width:46px;height:46px;display:block}
+.hp-gnav ul{display:flex;justify-content:center;gap:40px;list-style:none;margin:0;padding:0;font-size:15px}
+.hp-gnav a{padding-bottom:3px;border-bottom:1px solid transparent}
+.hp-header .hp-gnav a:hover{border-color:#121212;color:#121212}
+.hp-icons{position:absolute;top:24px;right:40px;display:flex;gap:28px}
+.hp-header .hp-icons a{display:flex;align-items:center;gap:6px;font-size:14px;color:#033521;transition:opacity .3s}
+.hp-icons a:hover{opacity:.6}
+.hp-icons img{width:22px;height:22px;display:block}
+/* カートの商品数バッジ（ページキャッシュに残らないよう、中身はカートフラグメントで反映） */
+.hp-icons a{position:relative}
+.hp-cart-count{position:absolute;left:13px;top:-8px;min-width:18px;height:18px;padding:0 5px;box-sizing:border-box;border-radius:9px;background:#033521;color:#fff;font-family:"Noto Sans JP",sans-serif;font-size:11px;font-weight:700;font-style:normal;line-height:18px;letter-spacing:0;text-align:center;box-shadow:0 0 0 2px #fff}
+.hp-cart-count[hidden]{display:none}
+/* Cocoonのモバイル用ヘッダーメニューは使わない */
+.mobile-header-menu-buttons{display:none !important}
+
+@media screen and (max-width: 900px){
+  .hp-header-in{gap:10px;padding:14px 16px 10px}
+  .hp-icons{top:16px;right:16px;gap:12px}
+  .hp-header .hp-logo{align-self:flex-start;gap:8px}
+  .hp-logo img{width:36px;height:36px}
+  .hp-icons span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .hp-gnav ul{flex-wrap:wrap;gap:4px 20px;font-size:13px;letter-spacing:.03em}
+  .hp-gnav a{white-space:nowrap}
+}
+
+/* ===== フッター（TOPページ /index.html と共通。中身は tmp/footer-bottom.php） ===== */
+#footer.footer{margin:0;padding:80px 0 30px;background:#033521}
+#footer #footer-in{width:auto;max-width:1200px;margin:0 auto;padding:0 40px;box-sizing:border-box}
+.hp-footer{color:#fff;font-family:"Noto Sans JP",sans-serif;font-size:14px;line-height:1.9;letter-spacing:.06em}
+.hp-footer a{color:inherit;text-decoration:none}
+.hp-footer .hp-logo{display:inline-block;color:#fff}
+.hp-f-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.25)}
+.hp-f-top h4{margin:0 0 14px;padding:0;border:0;background:none;color:#fff;font-family:"Caudex",serif;font-size:16px;font-weight:400;line-height:1.9}
+.hp-f-top ul{margin:0;padding:0;list-style:none}
+.hp-f-top li{margin:0 0 6px}
+.hp-f-top p{margin:0}
+.hp-f-top a:hover{text-decoration:underline}
+.hp-f-bottom{display:flex;justify-content:flex-end;align-items:center;padding-top:28px;font-size:12px}
+.hp-f-bottom p{margin:0}
+@media screen and (max-width: 900px){
+  #footer #footer-in{padding:0 16px}
+  .hp-f-top{grid-template-columns:1fr}
+  .hp-f-bottom{flex-direction:column;gap:14px}
+}
+
+/* ===== マイアカウント ===== */
+/* ページ上部のタイトル「マイアカウント」を表示しない */
+.woocommerce-account .article .entry-title{display:none}
+/* タイトルを消した分、ログイン見出しまでの上の余白を詰める */
+.woocommerce-account .main{padding-top:16px}
+.woocommerce-account .entry-content{margin-top:0}
+.woocommerce-account .woocommerce > h2:first-of-type{margin-top:8px}
+/* ログインの下の「無料アカウント登録」ボタン */
+.hp-register-cta{margin-top:40px;padding-top:32px;text-align:center}
+/* ログイン前のマイアカウントでは本文下の線を出さない */
+.woocommerce-account:not(.logged-in) .content .main .entry-content{border-bottom:0}
+.hp-register-cta p{margin:0 0 12px;font-size:14px}
+.hp-register-cta .hp-register-btn{display:inline-block;min-width:280px;padding:14px 32px;border:1px solid #033521;background:#033521;color:#fff;font-size:15px;letter-spacing:.08em;text-align:center;text-decoration:none;transition:opacity .3s}
+.hp-register-cta .hp-register-btn:hover{opacity:.8;color:#fff}
+.hp-login-back{margin-top:24px;text-align:center;font-size:14px}
+/* ログインフォームの外枠を消す */
+.woocommerce-account .woocommerce form.woocommerce-form-login{padding:0;border:0}
+/* ログインボタンと「パスワードをお忘れですか？」を中央に */
+.woocommerce-account .woocommerce form.woocommerce-form-login .hp-login-submit-row{text-align:center}
+.woocommerce-account .woocommerce form.woocommerce-form-login .woocommerce-form-login__submit{float:none;min-width:9em;margin:0 auto}
+/* ログインの入力欄（ユーザー名・パスワード）を幅70%で中央に */
+.woocommerce-account .woocommerce form.woocommerce-form-login .form-row-wide{width:70%;margin-left:auto;margin-right:auto}
+.woocommerce-account .woocommerce form.woocommerce-form-login .lost_password{text-align:center}
+/* 新規登録フォーム */
+.hp-register-lead{max-width:480px;margin:0 auto 24px;font-size:14px;line-height:1.8}
+.woocommerce-account .woocommerce form.woocommerce-form-register{max-width:480px;margin:0 auto;padding:0;border:0}
+.woocommerce-form-register label{display:block;margin-bottom:6px;font-size:14px}
+.woocommerce-form-register input.input-text{box-sizing:border-box;width:100%;height:48px;padding:0 12px;border:1px solid rgba(37,37,37,.55);border-radius:6px;font-size:16px}
+.woocommerce-form-register .woocommerce-privacy-policy-text{font-size:13px}
+.woocommerce-account .woocommerce form.woocommerce-form-register .woocommerce-form-register__submit{width:100%;min-height:50px;margin:8px 0 0;border:1px solid #033521;border-radius:7px;background:#033521;color:#fff;font-family:inherit;font-size:15px;font-weight:400;letter-spacing:.1em;transition:opacity .3s}
+.woocommerce-account .woocommerce form.woocommerce-form-register .woocommerce-form-register__submit:hover{opacity:.75}
+/* ログイン後の挨拶文（メニューカードの上に中央寄せ） */
+.hp-account-greeting{margin:8px 0 24px;text-align:center;font-size:16px}
+/* ログイン後のメニュー（アカウント・注文・ダウンロード…）を左の列でなく、上部に3列のカードで並べる */
+.woocommerce-account .woocommerce .woocommerce-MyAccount-navigation{float:none;width:100%;margin:0 0 40px}
+.woocommerce-account .woocommerce .woocommerce-MyAccount-content{float:none;width:100%}
+.woocommerce-MyAccount-navigation ul{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0;padding:0;list-style:none}
+.woocommerce-MyAccount-navigation li{margin:0;padding:0;border:0;list-style:none}
+.woocommerce-MyAccount-navigation li::before{display:none}
+.woocommerce-MyAccount-navigation li a{display:flex;align-items:center;justify-content:center;min-height:64px;padding:12px 8px;border:1px solid rgba(18,18,18,.12);border-radius:6px;background:#fff;color:rgba(18,18,18,.75);font-size:15px;line-height:1.5;text-align:center;text-decoration:none;transition:border-color .3s,color .3s,background-color .3s}
+.woocommerce-MyAccount-navigation li a:hover{border-color:#033521;color:#033521}
+.woocommerce-MyAccount-navigation li.is-active a{border-color:#033521;background:#033521;color:#fff}
+@media screen and (max-width: 600px){
+  .woocommerce-MyAccount-navigation ul{gap:8px}
+  .woocommerce-MyAccount-navigation li a{min-height:52px;padding:8px 4px;font-size:13px}
+}
+
+/* ===== カート ===== */
+/* カートが空のときの「新登場」（点線・見出し・商品一覧）を表示しない */
+.wp-block-woocommerce-empty-cart-block > hr,
+.wp-block-woocommerce-empty-cart-block > h2:not(.wc-block-cart__empty-cart__title),
+.wp-block-woocommerce-empty-cart-block > .wp-block-product-new{display:none}
+/* カートが空のときの顔のアイコンを表示しない */
+.wp-block-woocommerce-empty-cart-block .wc-block-cart__empty-cart__title.with-empty-cart-icon::before{display:none}
+
+/* ===== 支払い ===== */
+/* 国は日本で固定なので（functions.php）、選択欄の矢印を消して押せなくする */
+.wc-block-components-country-input .wc-blocks-components-select__select{pointer-events:none}
+.wc-block-components-country-input .wc-blocks-components-select__expand{display:none}
+
+/* ===== 商品ページ ===== */
+/* 商品名は右カラムに出すので、記事タイトルは表示しない */
+.single-product .article-header .entry-title{display:none}
+/* パンくずと写真の間を詰める（空の記事ヘッダーと上の余白を取る） */
+.single-product .article-header{display:none}
+.single-product #content{margin-top:0}
+.single-product #main{padding-top:16px}
+.single-product .entry-content{margin-top:0}
+/* 左カラムの写真：1枚目は全幅、2枚目以降は2列で並べる */
+.woocommerce div.product div.images .woocommerce-product-gallery__wrapper{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2){display:block;width:auto;padding:0}
+.woocommerce div.product div.images .woocommerce-product-gallery__image img{width:100%;aspect-ratio:1;border-radius:8px;object-fit:cover}
+.woocommerce div.product div.images .woocommerce-product-gallery__image:first-child{grid-column:1/-1}
+.woocommerce div.product div.images .woocommerce-product-gallery__image:first-child img{aspect-ratio:auto}
+/* PCは写真55%・商品情報40%にして、商品情報は固定ヘッダーの下に追従させる */
+.single-product div.product{display:flow-root}
+@media screen and (min-width: 769px){
+  .woocommerce #content div.product div.images{width:55%}
+  .woocommerce #content div.product div.summary{position:sticky;top:108px;width:40%}
+}
+/* 右カラムの中の説明タブ */
+.woocommerce div.product .summary .woocommerce-tabs{margin-top:32px}
+/* タブの「説明」は出さず、見出し（こんな方におすすめ）を上に詰める */
+.woocommerce div.product .summary .woocommerce-tabs ul.tabs{display:none}
+.woocommerce div.product .summary .woocommerce-tabs .panel{margin:0;padding:0}
+.woocommerce div.product .summary .woocommerce-tabs .panel > :first-child{margin-top:0}
+.hp-product-title{margin:0 0 16px;padding:0;border:0;background:none;color:#333;font-size:30px;font-weight:700;line-height:1.4;letter-spacing:.04em}
+.woocommerce div.product .summary .price{margin:0 0 24px;color:#333;font-size:20px;letter-spacing:.06em}
+/* 数量（－ 1 ＋） */
+.woocommerce div.product form.cart{display:flex;flex-direction:column;gap:12px;margin:0 0 32px}
+.woocommerce div.product form.cart::before,.woocommerce div.product form.cart::after{display:none}
+.woocommerce div.product form.cart .hp-qty-label{margin:0 0 -4px;font-size:14px}
+.woocommerce div.product form.cart div.quantity{display:inline-flex;align-items:center;float:none;width:142px;height:48px;margin:0 0 8px;border:1px solid rgba(37,37,37,.55);border-radius:6px}
+.hp-qty-btn{flex:0 0 46px;height:100%;padding:0;border:0;background:none;color:#333;font-size:16px;cursor:pointer}
+.woocommerce div.product form.cart .quantity input.qty{flex:1;width:48px;min-width:0;height:100%;padding:0;border:0;background:none;font-family:inherit;text-align:center;-moz-appearance:textfield;appearance:textfield}
+.woocommerce div.product form.cart .quantity input.qty::-webkit-inner-spin-button,.woocommerce div.product form.cart .quantity input.qty::-webkit-outer-spin-button{margin:0;-webkit-appearance:none}
+/* カートに追加（白地に枠線）・今すぐ購入（緑の塗り） */
+.woocommerce div.product form.cart .single_add_to_cart_button,.woocommerce div.product form.cart .hp-buy-now{float:none;width:100%;min-height:50px;margin:0;padding:12px 16px;border:1px solid #033521;border-radius:7px;font-family:inherit;font-size:15px;font-weight:400;letter-spacing:.1em;transition:opacity .3s}
+.woocommerce div.product form.cart .single_add_to_cart_button,.woocommerce div.product form.cart .single_add_to_cart_button:hover{background:#fff;color:#033521}
+.woocommerce div.product form.cart .hp-buy-now,.woocommerce div.product form.cart .hp-buy-now:hover{background:#033521;color:#fff}
+.woocommerce div.product form.cart .single_add_to_cart_button:hover,.woocommerce div.product form.cart .hp-buy-now:hover{opacity:.75}
+.single-product .product_meta{margin-top:24px;color:rgba(18,18,18,.6);font-size:13px}
+@media screen and (max-width: 768px){
+  .hp-product-title{font-size:24px}
+}
+
+/************************************
+** レスポンシブデザイン用のメディアクエリ
+************************************/
+/*1023px以下*/
+@media screen and (max-width: 1023px){
+  /*必要ならばここにコードを書く*/
+}
+
+/*834px以下*/
+@media screen and (max-width: 834px){
+  /*必要ならばここにコードを書く*/
+}
+
+/*480px以下*/
+@media screen and (max-width: 480px){
+  /*必要ならばここにコードを書く*/
+}

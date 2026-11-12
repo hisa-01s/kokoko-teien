@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>WF｜TOPページ ｜ ココロノ庭園</title>
+<style>
+  :root{
+    --bg:#f1f1ef;
+    --paper:#ffffff;
+    --ink:#222;
+    --sub:#777;
+    --line:#cfcfcb;
+    --box:#e3e3df;
+    --box2:#c9c9c4;
+    --dark:#5a5a57;
+    --accent:#033521;   /* 本番の深緑（目印程度に使用） */
+    --gold:#bc964c;     /* 本番の金茶 */
+    --note:#fff6c8;
+    --note-line:#e0c95a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;font-size:14px;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+
+  /* ===== WF操作バー ===== */
+  .wf-bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:16px;padding:10px 20px;background:#2b2b2b;color:#fff;font-size:13px}
+  .wf-bar b{font-weight:700;letter-spacing:.05em}
+  .wf-bar .sp{flex:1}
+  .wf-bar button{padding:5px 14px;border:1px solid #777;background:transparent;color:#fff;font:inherit;cursor:pointer;border-radius:3px}
+  .wf-bar button.on{background:#fff;color:#222;border-color:#fff}
+  .wf-bar small{color:#aaa}
+
+  /* ===== キャンバス ===== */
+  .canvas{display:flex;justify-content:center;padding:30px 20px 80px}
+  .page{width:1280px;background:var(--paper);box-shadow:0 2px 16px rgba(0,0,0,.08);transition:width .3s}
+  body.sp .page{width:375px}
+  .inner{max-width:1120px;margin:0 auto;padding:0 40px}
+  body.sp .inner{padding:0 16px}
+
+  /* ===== 部品 ===== */
+  .ph{background:var(--box);border:1px solid var(--line);position:relative;display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:12px;text-align:center;overflow:hidden}
+  .ph::before,.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px))}
+  .ph::after{background:linear-gradient(to top left,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px))}
+  .ph span{position:relative;z-index:1;background:var(--box);padding:2px 8px}
+  .ph.dark{background:var(--box2)}
+  .ph.dark span{background:var(--box2)}
+  .txt-line{height:9px;background:var(--box);border-radius:2px;margin:7px 0}
+  .txt-line.s{width:60%}
+  .txt-line.m{width:85%}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:200px;height:50px;padding:0 24px;background:var(--ink);color:#fff;font-size:14px;letter-spacing:.05em}
+  .btn.line{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+  .btn::after{content:"→"}
+  .tag{display:inline-block;padding:1px 10px;border:1px solid var(--line);border-radius:20px;font-size:11px;color:var(--sub);background:#fff}
+  .ttl{text-align:center;margin-bottom:40px}
+  .ttl .en{font-size:12px;letter-spacing:.2em;color:var(--sub)}
+  .ttl .en::before{content:"● ";color:var(--gold);font-size:8px;vertical-align:middle}
+  .ttl h2{font-family:"BIZ UDPMincho","Yu Mincho",serif;font-size:28px;font-weight:400;letter-spacing:.1em}
+  .ttl p.lead{margin-top:10px;color:var(--sub)}
+  body.sp .ttl h2{font-size:22px}
+  section.blk{position:relative;padding:90px 0;border-top:1px dashed var(--line)}
+  body.sp section.blk{padding:56px 0}
+  .more{text-align:center;margin-top:40px}
+
+  /* ===== 注釈 ===== */
+  .sec-no{position:absolute;top:0;left:0;background:var(--ink);color:#fff;font-size:11px;padding:3px 10px;letter-spacing:.05em;z-index:5}
+  .note{background:var(--note);border:1px solid var(--note-line);padding:10px 14px;font-size:12px;line-height:1.7;color:#5a4a00;margin:16px 0 0}
+  .note b{display:block;margin-bottom:2px}
+  .note li{padding-left:1em;text-indent:-1em}
+  .note li::before{content:"・"}
+  body.hide-note .note,body.hide-note .sec-no{display:none}
+
+  /* ===== 01 ヘッダー ===== */
+  header.site{position:relative;border-bottom:1px solid var(--line);background:#fff}
+  header.site .inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px;color:var(--accent)}
+  .logo i{width:40px;height:40px;border-radius:50%;background:var(--box2)}
+  .gnav{display:flex;gap:32px;font-size:14px}
+  .gnav .cur{border-bottom:1px solid var(--ink)}
+  .hd-icons{display:flex;gap:18px;font-size:12px;color:var(--sub)}
+  .hd-icons span::before{content:"";display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--box2);vertical-align:middle;margin-right:5px}
+  .hamburger{display:none;width:28px;height:18px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative}
+  .hamburger::after{content:"";position:absolute;left:0;right:0;top:6px;border-top:2px solid var(--ink)}
+  body.sp header.site .inner{height:60px}
+  body.sp .logo{font-size:17px}
+  body.sp .logo i{width:30px;height:30px}
+  body.sp .gnav{display:none}
+  body.sp .hd-icons span{font-size:0}
+  body.sp .hamburger{display:block}
+  body.sp .hd-right{display:flex;align-items:center;gap:14px}
+  .hd-right{display:flex;align-items:center;gap:24px}
+
+  /* ===== 02 FV ===== */
+  .fv{position:relative;height:640px}
+  .fv .ph{position:absolute;inset:0;border:0}
+  .fv-copy{position:absolute;left:8%;bottom:14%;z-index:2}
+  .fv-copy h1{font-family:"BIZ UDPMincho","Yu Mincho",serif;font-weight:400;font-size:40px;letter-spacing:.12em;line-height:1.5}
+  .fv-copy p{margin:8px 0 26px;color:#444}
+  .fv-copy .btns{display:flex;gap:12px;flex-wrap:wrap}
+  body.sp .fv{height:520px}
+  body.sp .fv-copy{left:16px;right:16px;bottom:24px}
+  body.sp .fv-copy h1{font-size:26px}
+  body.sp .fv-copy .btn{min-width:0;flex:1}
+
+  /* ===== 03 コンセプト ===== */
+  .concept-body{max-width:640px;margin:0 auto;text-align:center}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px}
+  .pillar{text-align:center}
+  .pillar .ph{aspect-ratio:1/1;border-radius:50%;width:180px;margin:0 auto 18px}
+  .pillar h3{font-size:18px;font-weight:700;letter-spacing:.1em}
+  .pillar h3 small{display:block;font-size:11px;font-weight:400;color:var(--sub);letter-spacing:.15em}
+  .pillar p{color:var(--sub);font-size:13px;margin-top:6px}
+  body.sp .pillars{grid-template-columns:1fr;gap:36px}
+
+  /* ===== 04 商品 ===== */
+  .product{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .product .ph.main{aspect-ratio:4/3}
+  .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+  .thumbs .ph{aspect-ratio:1/1}
+  .product h3{font-size:24px;font-family:"BIZ UDPMincho","Yu Mincho",serif;font-weight:400;letter-spacing:.08em;margin:10px 0 6px}
+  .price{font-size:22px;font-weight:700;margin:14px 0}
+  .price small{font-size:12px;font-weight:400;color:var(--sub)}
+  .points{border-top:1px solid var(--line);margin:18px 0 28px}
+  .points li{padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .points li b{display:inline-block;width:2em;color:var(--gold)}
+  .product .btns{display:flex;gap:10px;flex-wrap:wrap}
+  body.sp .product{grid-template-columns:1fr;gap:28px}
+  body.sp .product .btn{flex:1}
+
+  /* ===== 05 枯山水の楽しみ方 ===== */
+  .howto{padding:0 !important}
+  .howto .wrap{position:relative;height:440px;display:flex;align-items:center;justify-content:center;text-align:center}
+  .howto .ph{position:absolute;inset:0;border:0}
+  .howto .wrap::before{content:"";position:absolute;inset:22px;border:1px solid var(--gold);z-index:2}
+  .howto .box{position:relative;z-index:3;background:rgba(255,255,255,.85);padding:36px 48px}
+  .steps{display:flex;justify-content:center;gap:10px;margin:18px 0 24px;font-size:12px}
+  .steps span{border:1px solid var(--ink);padding:3px 12px;background:#fff}
+  body.sp .howto .wrap{height:auto;padding:60px 16px}
+  body.sp .howto .box{padding:28px 18px}
+  body.sp .steps{flex-wrap:wrap}
+
+  /* ===== 06 セルフチェック ===== */
+  .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .check{border:1px solid var(--line);padding:28px 24px;display:flex;flex-direction:column;gap:10px;background:#fafaf8}
+  .check .ico{width:56px;height:56px;border-radius:50%;background:var(--box2)}
+  .check h3{font-size:16px}
+  .check p{font-size:12px;color:var(--sub);flex:1}
+  .check .go{font-size:12px;text-align:right}
+  .check .go::after{content:" →"}
+  body.sp .checks{grid-template-columns:1fr;gap:12px}
+  body.sp .check{flex-direction:row;flex-wrap:wrap;align-items:center;padding:16px}
+  body.sp .check .ico{width:44px;height:44px}
+  body.sp .check h3{flex:1}
+  body.sp .check p{flex-basis:100%}
+
+  /* ===== 07 新着コラム ===== */
+  .tabs{display:flex;justify-content:center;gap:0;margin-bottom:34px;border-bottom:1px solid var(--line)}
+  .tabs span{padding:10px 26px;font-size:13px;color:var(--sub);cursor:default}
+  .tabs span.on{color:var(--ink);border-bottom:2px solid var(--ink);font-weight:700}
+  body.sp .tabs{justify-content:flex-start;overflow-x:auto;white-space:nowrap}
+  body.sp .tabs span{padding:10px 14px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 28px}
+  .card .ph{aspect-ratio:16/9;margin-bottom:12px}
+  .card .meta{display:flex;gap:8px;align-items:center;font-size:11px;color:var(--sub);margin-bottom:6px}
+  .card h3{font-size:14px;font-weight:700;line-height:1.6}
+  body.sp .cards{grid-template-columns:1fr;gap:18px}
+  body.sp .card{display:grid;grid-template-columns:120px 1fr;gap:12px}
+  body.sp .card .ph{margin:0;aspect-ratio:4/3}
+  body.sp .card h3{font-size:13px}
+
+  /* ===== 08 庭園ガイド ===== */
+  .garden{background:#f7f7f5}
+  .garden-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .map{aspect-ratio:1/1}
+  .areas{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+  .areas a{padding:6px 16px;border:1px solid var(--ink);background:#fff;font-size:13px}
+  .areas a.big{background:var(--ink);color:#fff}
+  .g-list li{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .g-list .ph{aspect-ratio:4/3}
+  .g-list h4{font-size:13px}
+  .g-list p{font-size:11px;color:var(--sub)}
+  .feature{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+  .feature a{border:1px solid var(--line);background:#fff;padding:16px;font-size:13px;text-align:center}
+  .feature a small{display:block;font-size:11px;color:var(--sub)}
+  body.sp .garden-grid{grid-template-columns:1fr;gap:24px}
+  body.sp .feature{grid-template-columns:1fr 1fr;gap:8px}
+
+  /* ===== 09 人気記事 ===== */
+  .rank{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;counter-reset:r}
+  .rank li{display:grid;grid-template-columns:36px 120px 1fr;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);counter-increment:r}
+  .rank li::before{content:counter(r);font-family:Georgia,serif;font-size:24px;color:var(--gold);text-align:center}
+  .rank .ph{aspect-ratio:16/9}
+  .rank h4{font-size:13px;font-weight:700}
+  .rank .tag{margin-bottom:4px}
+  body.sp .rank{grid-template-columns:1fr}
+  body.sp .rank li{grid-template-columns:28px 90px 1fr;gap:10px}
+
+  /* ===== 10 About ===== */
+  .about{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+  .about .ph{aspect-ratio:4/3}
+  .about .card2{background:#fff;border:1px solid var(--line);padding:50px;margin-left:-60px;position:relative;z-index:1}
+  .about .card2 .ttl{text-align:left;margin-bottom:20px}
+  body.sp .about{grid-template-columns:1fr}
+  body.sp .about .card2{margin:-40px 12px 0;padding:28px 20px}
+
+  /* ===== 11 バナー ===== */
+  .banners{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .banners .ph{aspect-ratio:3/1}
+  body.sp .banners{grid-template-columns:1fr}
+
+  /* ===== 12 フッター ===== */
+  footer{background:#3a3a38;color:#ddd;padding:60px 0 24px}
+  .f-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px;padding-bottom:40px;border-bottom:1px solid #666}
+  .f-top h4{font-size:13px;color:#fff;margin-bottom:10px;letter-spacing:.1em}
+  .f-top li{font-size:12px;margin-bottom:5px;color:#bbb}
+  .f-logo{font-weight:700;font-size:20px;color:#fff;margin-bottom:10px}
+  .f-sns{display:flex;gap:10px;margin-top:14px}
+  .f-sns i{width:28px;height:28px;border-radius:50%;background:#666}
+  .copy{text-align:center;font-size:11px;color:#999;padding-top:20px}
+  body.sp .f-top{grid-template-columns:1fr 1fr}
+  body.sp .f-top > div:first-child{grid-column:1/-1}
+  .pagetop{position:fixed;right:24px;bottom:24px;width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;z-index:50}
+</style>
+</head>
+<body>
+
+<!-- WF操作バー（本番では不要） -->
+<div class="wf-bar">
+  <b>WF｜TOPページ（ココロノ庭園）</b>
+  <small>v0.1 / 2026-11-07</small>
+  <span class="sp"></span>
+  <button type="button" data-mode="pc" class="on">PC 1280</button>
+  <button type="button" data-mode="sp">SP 375</button>
+  <button type="button" id="noteBtn" class="on">注釈 ON</button>
+</div>
+
+<div class="canvas">
+<div class="page">
+
+<!-- ========== 01 ヘッダー ========== -->
+<header class="site">
+  <span class="sec-no">01 HEADER</span>
+  <div class="inner">
+    <a class="logo" href="/"><i></i>ココロノ庭園</a>
+    <nav class="gnav">
+      <a class="cur">ホーム</a>
+      <a>リラックスキット ▾</a>
+      <a>庭園ガイド</a>
+      <a>コラム ▾</a>
+      <a>セルフチェック</a>
+    </nav>
+    <div class="hd-right">
+      <div class="hd-icons"><span>マイアカウント</span><span>カート</span></div>
+      <i class="hamburger"></i>
+    </div>
+  </div>
+</header>
+<div class="inner"><div class="note"><b>01 ヘッダー</b><ul>
+  <li>スクロール時は追従（sticky）。現行の高さ・フォント・カートバッジ（WooCommerce連携）を流用</li>
+  <li>グロナビに「庭園ガイド（/kare-san/）」「セルフチェック（/contents/）」を追加。コラム▾は 心と体 / 趣味と暮らし / 京都・文化 のサブメニュー</li>
+  <li>SP：ハンバーガー＋全画面メニュー。アカウント・カートはアイコンのみ</li>
+</ul></div></div>
+
+<!-- ========== 02 FV ========== -->
+<div class="fv" style="margin-top:20px">
+  <span class="sec-no">02 FV</span>
+  <div class="ph"><span>メインビジュアル（ミニ枯山水で砂紋を描く手元／top.png）</span></div>
+  <div class="fv-copy">
+    <h1>大人の心に<br>小さな遊びを</h1>
+    <p>サブコピー：砂に線を引く数分間が、こころを整える時間になる。</p>
+    <div class="btns">
+      <a class="btn">枯山水キットを見る</a>
+      <a class="btn line">コラムを読む</a>
+    </div>
+  </div>
+</div>
+<div class="inner"><div class="note"><b>02 FV</b><ul>
+  <li>高さ PC 640px / SP 520px。下部グラデーションで白文字にしても可（現行は白文字）</li>
+  <li>CTAは2つ：主＝EC商品ページ（/ec/product/kare-san-01/）、副＝/column/</li>
+  <li>将来スライダー化する場合も最大3枚まで。自動送りなし推奨</li>
+</ul></div></div>
+
+<!-- ========== 03 コンセプト ========== -->
+<section class="blk">
+  <span class="sec-no">03 CONCEPT</span>
+  <div class="inner">
+    <div class="ttl"><p class="en">Concept</p><h2>ココロノ庭園とは</h2></div>
+    <div class="concept-body">
+      <div class="txt-line"></div><div class="txt-line m" style="margin:7px auto"></div><div class="txt-line"></div><div class="txt-line s" style="margin:7px auto"></div>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="ph"><span>IMAGE</span></div><h3><small>TOTONOERU</small>ととのえる</h3><p>疲れ・ストレス・体のケア<br>（コラム：心と体）</p></div>
+      <div class="pillar"><div class="ph"><span>IMAGE</span></div><h3><small>TANOSHIMU</small>たのしむ</h3><p>趣味・暮らし・小さな楽しみ<br>（コラム：趣味と暮らし）</p></div>
+      <div class="pillar"><div class="ph"><span>IMAGE</span></div><h3><small>MEGURU</small>めぐる</h3><p>枯山水・日本庭園・京都<br>（庭園ガイド／京都・文化）</p></div>
+    </div>
+  </div>
+  <div class="inner"><div class="note"><b>03 コンセプト</b><ul>
+    <li>サイトの3本柱を提示し、各カテゴリ一覧へ回遊させる（円画像＝リンク）</li>
+    <li>本文は3〜4行程度。「About Us」と役割が重なるため、運営者情報は 10 に分離</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 04 商品ピックアップ ========== -->
+<section class="blk">
+  <span class="sec-no">04 PRODUCT</span>
+  <div class="inner">
+    <div class="ttl"><p class="en">Relax Kit</p><h2>リラックスキット</h2></div>
+    <div class="product">
+      <div>
+        <div class="ph main"><span>商品メイン画像</span></div>
+        <div class="thumbs"><div class="ph"><span>1</span></div><div class="ph"><span>2</span></div><div class="ph"><span>3</span></div><div class="ph"><span>4</span></div></div>
+      </div>
+      <div>
+        <span class="tag">枯山水キット</span>
+        <h3>卓上ミニ枯山水キット（商品名）</h3>
+        <div class="txt-line"></div><div class="txt-line m"></div>
+        <p class="price">¥0,000 <small>（税込）送料：○○</small></p>
+        <ul class="points">
+          <li><b>01</b>届いてすぐ始められる一式セット</li>
+          <li><b>02</b>A4サイズで机の上に置ける</li>
+          <li><b>03</b>作り方ガイド（二つ折りパンフレット）付き</li>
+        </ul>
+        <div class="btns">
+          <a class="btn">商品の詳細を見る</a>
+          <a class="btn line">ギフトについて</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inner"><div class="note"><b>04 商品ピックアップ</b><ul>
+    <li>現状は商品1点のため、1商品を大きく見せるレイアウト。商品が3点以上になったらカード一覧に切替</li>
+    <li>価格・在庫はWooCommerce側と二重管理にならないよう、手入力 or REST APIで取得を検討</li>
+    <li>特徴3点・同梱物・サイズ感が伝わる写真（手に持った写真）を推奨</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 05 枯山水の楽しみ方 ========== -->
+<section class="blk howto">
+  <span class="sec-no">05 HOW TO</span>
+  <div class="wrap">
+    <div class="ph dark"><span>背景：砂紋のアップ写真</span></div>
+    <div class="box">
+      <div class="ttl" style="margin-bottom:0"><p class="en">How to Enjoy</p><h2>枯山水の楽しみ方</h2></div>
+      <div class="steps"><span>1. 砂を敷く</span><span>2. 石を置く</span><span>3. 砂紋を描く</span><span>4. 眺める</span></div>
+      <a class="btn">作り方を詳しく見る</a>
+    </div>
+  </div>
+  <div class="inner" style="padding-bottom:30px"><div class="note"><b>05 枯山水の楽しみ方</b><ul>
+    <li>リンク先：/kare-san/karesan-how/（枯山水の作り方）。商品理解→購入の後押し</li>
+    <li>4ステップはアイコン化してもOK。現行の「How to Use」金枠デザインを踏襲</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 06 セルフチェック ========== -->
+<section class="blk">
+  <span class="sec-no">06 SELF CHECK</span>
+  <div class="inner">
+    <div class="ttl"><p class="en">Self Check</p><h2>いまの自分をチェック</h2><p class="lead">YES・NOで答えるだけ。1〜3分でわかる診断コンテンツ</p></div>
+    <div class="checks">
+      <a class="check"><i class="ico"></i><h3>疲労・ストレスセルフチェック</h3><p>働く人の疲れ度・ストレス度を簡単チェック</p><span class="go">診断する</span></a>
+      <a class="check"><i class="ico"></i><h3>食べても太らない体質診断</h3><p>太りにくさのタイプと、近づくための習慣</p><span class="go">診断する</span></a>
+      <a class="check"><i class="ico"></i><h3>趣味の見つけ方診断</h3><p>あなたに合う趣味のタイプがわかる</p><span class="go">診断する</span></a>
+    </div>
+  </div>
+  <div class="inner"><div class="note"><b>06 セルフチェック</b><ul>
+    <li>/contents/stress-check/、/column/heal/metabolism_quiz/、/column/hobby/hobby_quiz/ へ</li>
+    <li>参加型コンテンツは回遊・滞在の起点になりやすいため上部寄りに配置</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 07 新着コラム ========== -->
+<section class="blk">
+  <span class="sec-no">07 COLUMN</span>
+  <div class="inner">
+    <div class="ttl"><p class="en">Column</p><h2>新着コラム</h2></div>
+    <div class="tabs"><span class="on">すべて</span><span>心と体</span><span>趣味と暮らし</span><span>京都・文化</span><span>庭園</span></div>
+    <div class="cards">
+      <a class="card"><div class="ph"><span>アイキャッチ 16:9</span></div><div><p class="meta"><span class="tag">心と体</span>2026.11.07</p><h3>精神的に疲れた・心が疲れたときのサインと対処法（タイトル2行まで）</h3></div></a>
+      <a class="card"><div class="ph"><span>アイキャッチ 16:9</span></div><div><p class="meta"><span class="tag">趣味と暮らし</span>2026.11.06</p><h3>大人におすすめの趣味20選｜一人で楽しめる…</h3></div></a>
+      <a class="card"><div class="ph"><span>アイキャッチ 16:9</span></div><div><p class="meta"><span class="tag">京都・文化</span>2026.11.05</p><h3>金閣寺の見どころ10選｜舎利殿の特徴や庭園…</h3></div></a>
+      <a class="card"><div class="ph"><span>アイキャッチ 16:9</span></div><div><p class="meta"><span class="tag">庭園</span>2026.11.04</p><h3>龍安寺の石庭とは？15個の石の意味と謎…</h3></div></a>
+      <a class="card"><div class="ph"><span>アイキャッチ 16:9</span></div><div><p class="meta"><span class="tag">心と体</span>2026.11.03</p><h3>瞑想とは？初心者でもできる瞑想のやり方…</h3></div></a>
+      <a class="card"><div class="ph"><span>アイキャッチ 16:9</span></div><div><p class="meta"><span class="tag">趣味と暮らし</span>2026.11.02</p><h3>デジタルデトックスのやり方｜スマホと上手に…</h3></div></a>
+    </div>
+    <div class="more"><a class="btn line">コラム一覧へ</a></div>
+  </div>
+  <div class="inner"><div class="note"><b>07 新着コラム</b><ul>
+    <li>PC 3列×2行＝6件 / SP 横長リスト6件。タブ切替はJSで表示フィルタ（URL遷移なし）</li>
+    <li>静的サイトのため、記事一覧はJSON（例：/column/articles.json）を1つ用意して描画すると更新が楽</li>
+    <li>アイキャッチ未掲載の記事（現在129件）はカテゴリ別の代替画像を表示</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 08 庭園ガイド ========== -->
+<section class="blk garden">
+  <span class="sec-no">08 GARDEN GUIDE</span>
+  <div class="inner">
+    <div class="ttl"><p class="en">Garden Guide</p><h2>全国の庭園をめぐる</h2><p class="lead">枯山水・日本庭園の名所を、エリアから探す</p></div>
+    <div class="garden-grid">
+      <div class="ph map"><span>日本地図（エリアをクリックで絞込）<br>※SPでは非表示も可</span></div>
+      <div>
+        <div class="areas">
+          <a class="big">京都</a><a>奈良</a><a>大阪・兵庫</a><a>関東</a><a>中部</a><a>中国・四国</a><a>その他</a>
+        </div>
+        <ul class="g-list">
+          <li><div class="ph"><span>IMG</span></div><div><span class="tag">京都</span><h4>龍安寺の石庭とは？15個の石の意味と謎</h4><p>抜粋テキストが入ります</p></div></li>
+          <li><div class="ph"><span>IMG</span></div><div><span class="tag">京都</span><h4>東福寺の庭を解説｜重森三玲の方丈庭園</h4><p>抜粋テキストが入ります</p></div></li>
+          <li><div class="ph"><span>IMG</span></div><div><span class="tag">京都</span><h4>銀閣寺の庭とは？銀沙灘・向月台の枯山水</h4><p>抜粋テキストが入ります</p></div></li>
+          <li><div class="ph"><span>IMG</span></div><div><span class="tag">奈良</span><h4>奈良の庭園おすすめ｜依水園・吉城園</h4><p>抜粋テキストが入ります</p></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="feature">
+      <a>日本庭園とは<small>種類と歴史の基本</small></a>
+      <a>枯山水の庭園とは<small>石と白砂の意味</small></a>
+      <a>日本三大庭園<small>兼六園・後楽園・偕楽園</small></a>
+      <a>作庭家で見る<small>夢窓疎石・小堀遠州・重森三玲</small></a>
+    </div>
+    <div class="more"><a class="btn line">庭園ガイド一覧へ</a></div>
+  </div>
+  <div class="inner"><div class="note"><b>08 庭園ガイド</b><ul>
+    <li>/kare-san/ 配下78件を「エリア」と「テーマ（基礎知識・作庭家）」の2軸で導線化</li>
+    <li>地図はSVGで実装（工数が重ければ初期リリースはエリアボタンのみ）</li>
+    <li>/kare-san/ のインデックスページが未作成のため、TOPと合わせて要作成</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 09 人気記事 ========== -->
+<section class="blk">
+  <span class="sec-no">09 RANKING</span>
+  <div class="inner">
+    <div class="ttl"><p class="en">Ranking</p><h2>よく読まれている記事</h2></div>
+    <ol class="rank">
+      <li><div class="ph"><span>IMG</span></div><div><span class="tag">京都・文化</span><h4>金閣寺の所要時間はどのくらい？</h4></div></li>
+      <li><div class="ph"><span>IMG</span></div><div><span class="tag">心と体</span><h4>疲労回復に効果的な方法とは？</h4></div></li>
+      <li><div class="ph"><span>IMG</span></div><div><span class="tag">趣味と暮らし</span><h4>50代男性の休日の過ごし方</h4></div></li>
+      <li><div class="ph"><span>IMG</span></div><div><span class="tag">庭園</span><h4>枯山水の作り方｜自宅でできる手順と道具</h4></div></li>
+      <li><div class="ph"><span>IMG</span></div><div><span class="tag">心と体</span><h4>イライラが止まらないのはなぜ？</h4></div></li>
+      <li><div class="ph"><span>IMG</span></div><div><span class="tag">京都・文化</span><h4>きぬかけの路ガイド</h4></div></li>
+    </ol>
+  </div>
+  <div class="inner"><div class="note"><b>09 人気記事</b><ul>
+    <li>6件。Search Console／GA4の実績から月1で手動更新（JSONの順番を差し替えるだけにする）</li>
+    <li>PC 2列（1〜3 / 4〜6）、SP 1列</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 10 About ========== -->
+<section class="blk">
+  <span class="sec-no">10 ABOUT</span>
+  <div class="inner">
+    <div class="about">
+      <div class="ph"><span>IMAGE（運営者・制作風景など）</span></div>
+      <div class="card2">
+        <div class="ttl"><p class="en">About Us</p><h2>私たちについて</h2></div>
+        <div class="txt-line"></div><div class="txt-line m"></div><div class="txt-line"></div><div class="txt-line s"></div>
+        <div style="margin-top:28px"><a class="btn">運営者情報を見る</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="inner"><div class="note"><b>10 About</b><ul>
+    <li>現行TOPの About レイアウト（画像＋重なる白カード）を流用</li>
+    <li>健康系記事（心と体）が多いため、運営者情報・監修方針・参考文献ポリシーを載せたページへ繋ぐ（E-E-A-T対策）</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 11 バナー ========== -->
+<section class="blk" style="padding-top:60px;padding-bottom:60px">
+  <span class="sec-no">11 BANNER</span>
+  <div class="inner">
+    <div class="banners">
+      <div class="ph"><span>バナー：ギフト・贈り物に</span></div>
+      <div class="ph"><span>バナー：体験教室（準備中なら非表示）</span></div>
+    </div>
+  </div>
+  <div class="inner"><div class="note"><b>11 バナー</b><ul>
+    <li>現行TOPのオーダーメイド・ギフト・体験教室・安心サービスは、実態が決まるまでバナー枠に集約</li>
+  </ul></div></div>
+</section>
+
+<!-- ========== 12 フッター ========== -->
+<footer>
+  <div class="inner">
+    <div class="f-top">
+      <div>
+        <p class="f-logo">ココロノ庭園</p>
+        <p style="font-size:12px;color:#aaa">大人の心に小さな遊びを</p>
+        <div class="f-sns"><i></i><i></i><i></i></div>
+      </div>
+      <div><h4>SHOP</h4><ul><li>枯山水キット</li><li>マイアカウント</li><li>カート</li></ul></div>
+      <div><h4>CONTENTS</h4><ul><li>コラム一覧</li><li>心と体</li><li>趣味と暮らし</li><li>京都・文化</li><li>庭園ガイド</li><li>セルフチェック</li></ul></div>
+      <div><h4>INFO</h4><ul><li>運営者情報</li><li>特定商取引法に基づく表記</li><li>プライバシーポリシー</li><li>利用規約</li><li>配送ポリシー</li><li>お問い合わせ</li></ul></div>
+    </div>
+    <p class="copy">© 2026, kokoro no teien</p>
+  </div>
+</footer>
+<div class="inner" style="padding-bottom:30px"><div class="note"><b>12 フッター</b><ul>
+  <li>ページトップボタン（右下固定）あり。法定表記4ページは /ec/ 側の固定ページへリンク</li>
+</ul></div></div>
+
+</div><!-- /.page -->
+</div><!-- /.canvas -->
+
+<a class="pagetop" href="#">TOP</a>
+
+<script>
+// WF表示切替（PC/SP・注釈）
+document.querySelectorAll('[data-mode]').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('[data-mode]').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    document.body.classList.toggle('sp',b.dataset.mode==='sp');
+  });
+});
+document.getElementById('noteBtn').addEventListener('click',function(){
+  var hide=document.body.classList.toggle('hide-note');
+  this.classList.toggle('on',!hide);
+  this.textContent=hide?'注釈 OFF':'注釈 ON';
+});
+</script>
+</body>
+</html>

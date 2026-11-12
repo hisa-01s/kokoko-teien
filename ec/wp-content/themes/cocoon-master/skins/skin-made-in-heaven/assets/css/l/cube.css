@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+/* 立体 */
+.breeding-rhombus-wrap {
+  --size: 65px;
+  --rhombus-size: calc(var(--size) / 7.5);
+  --distance: 325%;
+
+  box-sizing: border-box;
+  height: var(--size);
+  position: relative;
+  transform: rotate(45deg);
+  width: var(--size);
+}
+
+.breeding-rhombus-wrap * {
+  box-sizing: border-box;
+}
+
+.breeding-rhombus-wrap .rhombus {
+  animation: breeding-rhombus-spread 2s infinite;
+  background-color: var(--main-color);
+  height: var(--rhombus-size);
+  left: calc(var(--size) / 2.3077);
+  position: absolute;
+  top: calc(var(--size) / 2.3077);
+  width: var(--rhombus-size);
+}
+
+.breeding-rhombus-wrap .rhombus.big {
+  animation: breeding-rhombus-big 2s infinite;
+  animation-delay: 0.5s;
+  height: calc(var(--size) / 3);
+  left: calc(var(--size) / 3);
+  top: calc(var(--size) / 3);
+  width: calc(var(--size) / 3);
+}
+
+.child-1 { --tx: -1; --ty: -1; --delay: 1; }
+.child-2 { --tx:  0; --ty: -1; --delay: 2; }
+.child-3 { --tx:  1; --ty: -1; --delay: 3; }
+.child-4 { --tx:  1; --ty:  0; --delay: 4; }
+.child-5 { --tx:  1; --ty:  1; --delay: 5; }
+.child-6 { --tx:  0; --ty:  1; --delay: 6; }
+.child-7 { --tx: -1; --ty:  1; --delay: 7; }
+.child-8 { --tx: -1; --ty:  0; --delay: 8; }
+
+.breeding-rhombus-wrap .rhombus:not(.big) {
+  animation-delay: calc(100ms * var(--delay));
+}
+
+@keyframes breeding-rhombus-spread {
+  50% {
+    transform: translate(calc(var(--distance) * var(--tx)), calc(var(--distance) * var(--ty)));
+  }
+}
+
+@keyframes breeding-rhombus-big {
+  50% {
+    transform: scale(0.5);
+  }
+}
