@@ -31,13 +31,14 @@ RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
 # 4. 移動したページの旧URL → 新URL
 RewriteRule ^heal/tired-non(?:/(.*))?$ /column/heal/tired-non/$1 [R=301,L]
 RewriteRule ^column/heal/karesan-how(?:/(.*))?$ /column/culture/karesan-how/$1 [R=301,L]
-RewriteRule ^column/culture/(ten_daruma|tera_garden)(?:/(.*))?$ /kare-san/$1/$2 [R=301,L]
 # 2026-11-09 kare-san → column/culture へ移動（9ページ）
 RewriteRule ^kare-san/(arashi_garden|arashi_ryo|asuka_pond|awata_sanso|chishaku_garden|enshu_garden|garden_cafe|gin_garden|gin_look)(?:/(.*))?$ /column/culture/$1/$2 [R=301,L]
 # 2026-11-09 kare-san → column/culture へ移動（36ページ）
 RewriteRule ^kare-san/(gyosen_kaku|hama_gate|hashin_tei|heian_hotel|higa_garden|himeyama_park|hosen_in|hyakudan_en|jiun_ji|jodo_garden|join_ji|joruri_garden|jp_garden|jp_three|kamakura_garden|karasu_pond|karesan-how|karesan_garden|katsura_site|kin_garden|kisho_an|kitayama_park|kochidani_amida|kofuku_garden|kondaya_kurogura|korin_in|kosei_in|kujo_site|kyoto_garden|kyoto_karesan|mitaki_ji|myo_look|nakane_kinsaku|nanzen_area|nara_garden|nin_about)(?:/(.*))?$ /column/culture/$1/$2 [R=301,L]
 # 2026-11-09 kare-san → column/culture へ移動（14ページ）
 RewriteRule ^kare-san/(nin_garden|nin_heritage|nin_time|nobu_garden|okayama_garden|onomichi_jodoji|osaka_garden|ryo_heritage|ryo_look|ryo_souvenir|ryo_stone|ryokaku_park|ryushi_museum|sasha_kanetanaka)(?:/(.*))?$ /column/culture/$1/$2 [R=301,L]
+# 2026-11-12 kare-san → column/culture へ移動（19ページ）
+RewriteRule ^kare-san/(sekisho_an|shiga_house|shigemori_garden|shirakawa_in|shurin_garden|taiko_en|tairiki_tei|ten_daruma|ten_garden|tenju_an|tera_garden|tofuku_garden|toin_garden|umemiya_garden|western_garden|western_house|yakumo_house|yamamoto_house|zuisen_garden)(?:/(.*))?$ /column/culture/$1/$2 [R=301,L]
 </IfModule>
 
 # ===== ここから下に、既存の .htaccess の記述（WordPress など）をそのまま残す =====
