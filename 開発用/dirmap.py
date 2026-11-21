@@ -1,6 +1,6 @@
 import csv, os, re, html, glob, datetime, sys
 ROOT = r"C:/Users/user/OneDrive/デスクトップ/heal-place"
-SRC = f"{ROOT}/開発用/directory-map_20261121_0214_KW.csv"
+SRC = f"{ROOT}/開発用/directory-map_20261121_1248_KW.csv"
 BASE = "https://heal-place.com/"
 N = {1:"1",2:"2",3:"３",4:"４",5:"５",6:"６"}
 H2KEYS = [f"h2：{N[n]}つ目画像" for n in range(1,7)]
@@ -84,5 +84,5 @@ old = {r["URL"]: r for r in rows}
 for o in out:
     r = old.get(o["URL"])
     if not r: continue
-    for k in ["title","sitemap.xml掲載","アイキャッチ掲載","h2：2つ目画像","h2：３つ目画像","階層深さ"]:
+    for k in ["title","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル","階層深さ"]:
         if r[k] != o[k]: print("changed", o["URL"], k, repr(r[k]), "->", repr(o[k]))
