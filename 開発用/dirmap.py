@@ -1,9 +1,9 @@
 import csv, os, re, html, glob, datetime, sys
 ROOT = r"C:/Users/user/OneDrive/デスクトップ/heal-place"
-SRC = f"{ROOT}/開発用/directory-map_20261119_2333_KW.csv"
+SRC = f"{ROOT}/開発用/directory-map_20261121_0214_KW.csv"
 BASE = "https://heal-place.com/"
-N = {2:"2",3:"３",4:"４",5:"５",6:"６"}
-H2KEYS = [f"h2：{N[n]}つ目画像" for n in range(2,7)]
+N = {1:"1",2:"2",3:"３",4:"４",5:"５",6:"６"}
+H2KEYS = [f"h2：{N[n]}つ目画像" for n in range(1,7)]
 
 rows = list(csv.DictReader(open(SRC, encoding="utf-8-sig")))
 sitemap = open(f"{ROOT}/sitemap.xml", encoding="utf-8").read()
@@ -40,7 +40,7 @@ def info(url):
     if eyefile and not os.path.exists(f"{ROOT}/asset/image/{eyefile}"): eyefile += "(ファイルなし)"
     h2 = [m.start() for m in re.finditer(r"<h2[\s>]", s)]
     h2imgs = {}
-    for n in range(2, 7):
+    for n in range(1, 7):
         key = f"h2：{N[n]}つ目画像"
         if len(parts) < 3 or len(h2) < n: h2imgs[key] = "-"; continue
         sec = s[h2[n-1]: h2[n] if len(h2) > n else len(s)]
@@ -53,9 +53,10 @@ def info(url):
                 **{"sitemap.xml掲載": "○" if url in sm_urls else "×",
                    "アイキャッチ掲載": "○" if eye else "×",
                    **h2imgs,
-                   "kw_all": "○" if slug and slug in kw_all else "×"})
+                   "kw_all": "○" if slug and slug in kw_all else "×",
+                   "kw_allファイル": chr(10).join(sorted(os.listdir(f"{ROOT}/開発用/KW/kw_all/{slug}"))) if slug and slug in kw_all else "-"})
 
-FIELDS = ["URL","index","title","KW","vol","第1階層","第2階層","第3階層","階層深さ","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_all"]
+FIELDS = ["URL","index","title","KW","vol","第1階層","第2階層","第3階層","階層深さ","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル"]
 out, seen, notes = [], set(), []
 for r in rows:
     url = r["URL"]; idx = r["index"]
@@ -73,7 +74,7 @@ for u in sorted(live - seen):
 stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
 dst = f"{ROOT}/開発用/directory-map_{stamp}_KW.csv"
 with open(dst, "w", encoding="utf-8-sig", newline="") as f:
-    w = csv.DictWriter(f, FIELDS); w.writeheader(); w.writerows(out)
+    w = csv.DictWriter(f, FIELDS, extrasaction="ignore"); w.writeheader(); w.writerows(out)
 print(dst, len(out)); print("\n".join(notes))
 from collections import Counter
 for k in H2KEYS: print(k, Counter(o[k] for o in out))
@@ -83,5 +84,5 @@ old = {r["URL"]: r for r in rows}
 for o in out:
     r = old.get(o["URL"])
     if not r: continue
-    for k in ["title","sitemap.xml掲載","アイキャッチ掲載","h2：2つ目画像","kw_all","階層深さ"]:
+    for k in ["title","sitemap.xml掲載","アイキャッチ掲載","h2：2つ目画像","h2：３つ目画像","階層深さ"]:
         if r[k] != o[k]: print("changed", o["URL"], k, repr(r[k]), "->", repr(o[k]))
