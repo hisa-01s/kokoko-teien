@@ -1,6 +1,6 @@
 import csv, os, re, html, glob, datetime, sys
 ROOT = r"C:/Users/user/OneDrive/デスクトップ/heal-place"
-SRC = f"{ROOT}/開発用/directory-map_20261121_1248_KW.csv"
+SRC = f"{ROOT}/開発用/directory-map_20261121_2258_KW.csv"
 BASE = "https://heal-place.com/"
 N = {1:"1",2:"2",3:"３",4:"４",5:"５",6:"６"}
 H2KEYS = [f"h2：{N[n]}つ目画像" for n in range(1,7)]
@@ -56,7 +56,7 @@ def info(url):
                    "kw_all": "○" if slug and slug in kw_all else "×",
                    "kw_allファイル": chr(10).join(sorted(os.listdir(f"{ROOT}/開発用/KW/kw_all/{slug}"))) if slug and slug in kw_all else "-"})
 
-FIELDS = ["URL","index","title","KW","vol","第1階層","第2階層","第3階層","階層深さ","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル"]
+FIELDS = ["URL","index","title","KW","vol","第1階層","第2階層","第3階層","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル"]
 out, seen, notes = [], set(), []
 for r in rows:
     url = r["URL"]; idx = r["index"]
@@ -84,5 +84,5 @@ old = {r["URL"]: r for r in rows}
 for o in out:
     r = old.get(o["URL"])
     if not r: continue
-    for k in ["title","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル","階層深さ"]:
+    for k in ["title","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル"]:
         if r[k] != o[k]: print("changed", o["URL"], k, repr(r[k]), "->", repr(o[k]))
