@@ -1,6 +1,6 @@
 import csv, os, re, html, glob, datetime, sys
 ROOT = r"C:/Users/user/OneDrive/デスクトップ/heal-place"
-SRC = f"{ROOT}/開発用/directory-map_20261121_2258_KW.csv"
+SRC = f"{ROOT}/開発用/directory-map_20261125_2215_KW.csv"
 BASE = "https://heal-place.com/"
 N = {1:"1",2:"2",3:"３",4:"４",5:"５",6:"６"}
 H2KEYS = [f"h2：{N[n]}つ目画像" for n in range(1,7)]
@@ -67,9 +67,30 @@ for r in rows:
     if url in seen: continue
     seen.add(url)
     out.append({"URL": url, "index": idx, "KW": r["KW"], "vol": r["vol"], **info(url)})
+# KW/vol for new pages, as supplied by the user (merged KWs newline-joined in one cell)
+NEWKW = {
+    "column/hobby/embroidery_howto/": [("刺繍のやり方", "14800")],
+    "column/hobby/kansai_onsen/": [("温泉日帰り関西", "12100")],
+    "column/culture/goshuincho_popular/": [("人気御朱印帳", "8100"), ("御朱印帳 レア", "2900"), ("寺の御朱印帳", "720")],
+    "column/life/kizukai/": [("気遣いとは", "6600")],
+    "column/hobby/puraban_keyholder/": [("プラ板キーホルダー", "6600")],
+    "column/life/time_kill/": [("時間つぶし", "5400")],
+    "column/culture/hana_kotoba/": [("花の意味", "5400")],
+    "column/life/bag_storage/": [("カバン　収納", "18100"), ("かばん収納", "18100")],
+    "column/life/xmas_gift1000/": [("1000円プレゼント クリスマス", "2400")],
+    "column/culture/kiyomizu_goshuin/": [("清水寺 の 御朱印", "8100")],
+    "column/life/sink_storage/": [("キッチンした収納", "12100")],
+    "column/life/xmas_card/": [("クリスマス手作りカード", "14800")],
+    "column/life/laundry_fold/": [("洗濯物　たたみ方", "1900")],
+    "column/hobby/easy_sewing/": [("簡単裁縫", "880")],
+    "column/culture/season_change/": [("季節の移ろい", "880")],
+    "column/life/hyakkin_storage/": [("100 均 収納", "6600")],
+    "column/hobby/tokyo_spots/": [("東京 有名な場所", "4400")],
+}
 for u in sorted(live - seen):
     notes.append(f"new: {u}")
-    out.append({"URL": u, "index": "", "KW": "", "vol": "", **info(u)})
+    kws = NEWKW.get(u[len(BASE):], [])
+    out.append({"URL": u, "index": "", "KW": chr(10).join(k for k, v in kws), "vol": chr(10).join(v for k, v in kws), **info(u)})
 
 stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
 dst = f"{ROOT}/開発用/directory-map_{stamp}_KW.csv"
