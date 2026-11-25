@@ -1,6 +1,6 @@
 import csv, os, re, html, glob, datetime, sys
 ROOT = r"C:/Users/user/OneDrive/デスクトップ/heal-place"
-SRC = f"{ROOT}/開発用/directory-map_20261125_2215_KW.csv"
+SRC = f"{ROOT}/開発用/directory-map_20261125_2240_KW.csv"
 BASE = "https://heal-place.com/"
 N = {1:"1",2:"2",3:"３",4:"４",5:"５",6:"６"}
 H2KEYS = [f"h2：{N[n]}つ目画像" for n in range(1,7)]
