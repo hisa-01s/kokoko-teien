@@ -1,9 +1,12 @@
 import csv, os, re, html, glob, datetime, sys
 ROOT = r"C:/Users/user/OneDrive/デスクトップ/heal-place"
-SRC = f"{ROOT}/開発用/directory-map_20261125_2240_KW.csv"
+SRC = f"{ROOT}/開発用/directory-map_20261125_2247_KW.csv"
 BASE = "https://heal-place.com/"
 N = {1:"1",2:"2",3:"３",4:"４",5:"５",6:"６"}
 H2KEYS = [f"h2：{N[n]}つ目画像" for n in range(1,7)]
+# アイキャッチの画風（目視で判定）。写真ベースが多いものは「写真」、イラストが多いものは「イラスト」に○。
+# 2026-11-26時点の全162枚は写真ベース。イラスト主体のアイキャッチを追加したら、そのslugをここに足す。
+ILLUST_EYECATCH = set()
 
 rows = list(csv.DictReader(open(SRC, encoding="utf-8-sig")))
 sitemap = open(f"{ROOT}/sitemap.xml", encoding="utf-8").read()
@@ -38,6 +41,7 @@ def info(url):
     eye = re.search(r'<figure class="eyecatch">\s*<img[^>]*src="([^"]+)"', s)
     eyefile = os.path.basename(eye.group(1)) if eye else ""
     if eyefile and not os.path.exists(f"{ROOT}/asset/image/{eyefile}"): eyefile += "(ファイルなし)"
+    slug = l3 or l2
     h2 = [m.start() for m in re.finditer(r"<h2[\s>]", s)]
     h2imgs = {}
     for n in range(1, 7):
@@ -48,15 +52,16 @@ def info(url):
         if im and os.path.exists(os.path.normpath(os.path.join(ROOT, rel, im.group(1)))): h2imgs[key] = "○"
         elif im: h2imgs[key] = "×(ファイルなし)"
         else: h2imgs[key] = "×"
-    slug = l3 or l2
     return dict(title=title, 第1階層=l1, 第2階層=l2, 第3階層=l3, 階層深さ=str(len(parts)),
                 **{"sitemap.xml掲載": "○" if url in sm_urls else "×",
                    "アイキャッチ掲載": "○" if eye else "×",
+                   "写真": "-" if not eye else ("×" if slug in ILLUST_EYECATCH else "○"),
+                   "イラスト": "-" if not eye else ("○" if slug in ILLUST_EYECATCH else "×"),
                    **h2imgs,
                    "kw_all": "○" if slug and slug in kw_all else "×",
                    "kw_allファイル": chr(10).join(sorted(os.listdir(f"{ROOT}/開発用/KW/kw_all/{slug}"))) if slug and slug in kw_all else "-"})
 
-FIELDS = ["URL","index","title","KW","vol","第1階層","第2階層","第3階層","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル"]
+FIELDS = ["URL","index","title","KW","vol","第1階層","第2階層","第3階層","sitemap.xml掲載","アイキャッチ掲載","写真","イラスト",*H2KEYS,"kw_allファイル"]
 out, seen, notes = [], set(), []
 for r in rows:
     url = r["URL"]; idx = r["index"]
@@ -106,4 +111,4 @@ for o in out:
     r = old.get(o["URL"])
     if not r: continue
     for k in ["title","sitemap.xml掲載","アイキャッチ掲載",*H2KEYS,"kw_allファイル"]:
-        if r[k] != o[k]: print("changed", o["URL"], k, repr(r[k]), "->", repr(o[k]))
+        if k in r and r[k] != o[k]: print("changed", o["URL"], k, repr(r[k]), "->", repr(o[k]))
